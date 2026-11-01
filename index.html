@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LangBleu — Learn Languages Free | 55+ Languages, 120 Lessons, Games & Pronunciation</title>
+<meta name="description" content="LangBleu is a free language learning platform. Learn Spanish, French, German, Arabic, Italian, Portuguese and 50+ languages with lessons, audio, flashcards, games and pronunciation practice. No sign-up required.">
+<meta name="keywords" content="learn languages free, language lessons, flashcards, pronunciation, LangBleu">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LangBleu — Learn Languages Free">
+<meta property="og:description" content="Free lessons, games, audio and pronunciation practice in 55+ languages.">
+<meta property="og:site_name" content="LangBleu">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://langbleu.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232563EB'/%3E%3Ctext x='32' y='42' font-size='30' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EL%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"LangBleu","url":"https://langbleu.com/","description":"Free multilingual language learning platform with lessons, games and pronunciation practice.","potentialAction":{"@type":"SearchAction","target":"https://langbleu.com/?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"LangBleu","url":"https://langbleu.com/","slogan":"Learn any language, free forever."}
+</script>
+<style>
+:root{--primary:#2563EB;--primary-dark:#1D4ED8;--accent:#0D9488;--accent2:#F59E0B;--bg:#F8FAFC;--surface:#FFFFFF;--text:#0F172A;--muted:#64748B;--border:#E2E8F0;--success:#16A34A;--danger:#DC2626;--radius:16px;--shadow:0 4px 24px rgba(15,23,42,.08)}
+[data-theme="dark"]{--bg:#0B1220;--surface:#111C33;--text:#E2E8F0;--muted:#94A3B8;--border:#1E293B;--shadow:0 4px 24px rgba(0,0,0,.4)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:var(--primary);text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+input,select,textarea{font-family:inherit;font-size:1rem;padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);width:100%}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--primary);border-color:transparent}
+header.topbar{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--border);box-shadow:0 1px 8px rgba(0,0,0,.04)}
+.topbar-in{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:1rem;padding:.6rem 1rem;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.45rem;color:var(--text)}
+.logo .bleu{color:var(--primary)}.logo .dotcom{color:var(--accent);font-size:.95rem}
+nav.mainnav{display:flex;gap:.25rem;flex-wrap:wrap;margin-inline-start:auto}
+nav.mainnav a{padding:.45rem .8rem;border-radius:9px;color:var(--text);font-weight:600;font-size:.95rem}
+nav.mainnav a:hover,nav.mainnav a.active{background:var(--primary);color:#fff}
+.icon-btn{background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:.45rem .7rem;font-size:1rem}
+.container{max-width:1200px;margin:0 auto;padding:1.2rem 1rem 3rem}
+.hero{background:linear-gradient(135deg,#2563EB,#0D9488);color:#fff;border-radius:24px;padding:2.4rem 1.6rem;text-align:center;box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(1.7rem,5vw,2.8rem);line-height:1.25;margin-bottom:.6rem}
+.hero p{opacity:.94;max-width:640px;margin:0 auto 1.2rem}
+.btn{display:inline-block;border:none;border-radius:12px;padding:.8rem 1.6rem;font-weight:700;font-size:1rem;background:var(--primary);color:#fff;transition:.15s}
+.btn:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn.white{background:#fff;color:var(--primary)}
+.btn.accent{background:var(--accent)}.btn.ghost{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+.btn.warn{background:var(--accent2);color:#111}.btn.danger{background:var(--danger)}
+.btn.small{padding:.45rem .9rem;font-size:.9rem;border-radius:9px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;box-shadow:var(--shadow)}
+.grid{display:grid;gap:1rem}
+.grid.c2{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.grid.c3{grid-template-columns:repeat(auto-fill,minmax(230px,1fr))}
+.grid.c4{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+.lang-card{text-align:center;cursor:pointer;transition:.15s}
+.lang-card:hover{transform:translateY(-3px);border-color:var(--primary)}
+.lang-card .flag{font-size:2.4rem}
+.lang-card h3{margin:.3rem 0 .1rem}
+.pair-bar{display:grid;grid-template-columns:1fr auto 1fr;gap:.7rem;align-items:end;max-width:760px;margin:1.2rem auto 0;text-align:start}
+.pair-bar label{font-weight:700;font-size:.9rem;display:block;margin-bottom:.3rem;color:#fff}
+.swap-btn{background:#fff;color:var(--primary);border:none;border-radius:50%;width:44px;height:44px;font-size:1.2rem;margin-bottom:2px}
+.section-title{font-size:1.5rem;margin:1.8rem 0 .8rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.muted{color:var(--muted)}.small{font-size:.88rem}
+.ad-slot{border:2px dashed var(--border);border-radius:12px;background:var(--bg);color:var(--muted);text-align:center;padding:1rem;margin:1rem 0;font-size:.85rem}
+.phrase-row{display:flex;align-items:center;gap:.8rem;padding:.8rem;border:1px solid var(--border);border-radius:12px;margin-bottom:.6rem;background:var(--surface);flex-wrap:wrap}
+.phrase-row .target{font-weight:800;font-size:1.15rem}
+.phrase-row .native{color:var(--muted)}
+.audio-btn{background:var(--accent);color:#fff;border:none;border-radius:50%;width:42px;height:42px;font-size:1.1rem;flex:none}
+.fav-btn{background:none;border:none;font-size:1.3rem;flex:none}
+.progress-wrap{background:var(--border);border-radius:99px;height:12px;overflow:hidden}
+.progress-bar{background:linear-gradient(90deg,var(--primary),var(--accent));height:100%;transition:.3s}
+.flashcard{perspective:900px;height:260px;cursor:pointer}
+.flashcard-in{position:relative;width:100%;height:100%;transition:transform .5s;transform-style:preserve-3d}
+.flashcard.flipped .flashcard-in{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;border-radius:20px;padding:1rem;text-align:center;font-size:1.6rem;font-weight:800}
+.fc-front{background:linear-gradient(135deg,#2563EB,#3B82F6);color:#fff}
+.fc-back{background:var(--surface);border:2px solid var(--primary);transform:rotateY(180deg);color:var(--text)}
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+.mem-card{aspect-ratio:1;border-radius:12px;border:2px solid var(--border);background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;text-align:center;padding:.3rem;cursor:pointer;font-size:.92rem}
+.mem-card.open,.mem-card.done{background:var(--surface);color:var(--text)}
+.mem-card.done{border-color:var(--success);opacity:.65;cursor:default}
+.ttt{display:grid;grid-template-columns:repeat(3,90px);gap:.5rem;justify-content:center}
+.ttt button{height:90px;font-size:2rem;font-weight:800;border-radius:14px;border:2px solid var(--border);background:var(--surface);color:var(--text)}
+.opt-btn{display:block;width:100%;text-align:start;margin-bottom:.55rem;padding:.8rem 1rem;border-radius:11px;border:1.5px solid var(--border);background:var(--surface);color:var(--text);font-weight:600}
+.opt-btn.correct{border-color:var(--success);background:#DCFCE7;color:#14532D}
+.opt-btn.wrong{border-color:var(--danger);background:#FEE2E2;color:#7F1D1D}
+.letter-chip{display:inline-block;margin:.2rem;padding:.55rem .8rem;border-radius:9px;background:var(--primary);color:#fff;font-weight:800;cursor:pointer;border:none;font-size:1.05rem}
+.letter-chip.used{opacity:.3;pointer-events:none}
+table{width:100%;border-collapse:collapse}th,td{padding:.55rem;border-bottom:1px solid var(--border);text-align:start;font-size:.92rem}
+footer{background:var(--surface);border-top:1px solid var(--border);margin-top:2rem}
+.footer-in{max-width:1200px;margin:0 auto;padding:1.6rem 1rem;display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:space-between}
+.toast{position:fixed;bottom:18px;inset-inline-start:50%;transform:translateX(-50%);background:#0F172A;color:#fff;padding:.7rem 1.2rem;border-radius:99px;z-index:99;box-shadow:var(--shadow);font-weight:600}
+[dir="rtl"] .toast{transform:translateX(50%)}
+.badge{display:inline-block;background:var(--accent);color:#fff;border-radius:99px;padding:.1rem .6rem;font-size:.78rem;font-weight:700}
+.score-pill{background:var(--accent2);color:#111;border-radius:99px;padding:.25rem .8rem;font-weight:800}
+@media(max-width:640px){.pair-bar{grid-template-columns:1fr}.swap-btn{margin:0 auto}.mem-grid{grid-template-columns:repeat(3,1fr)}nav.mainnav a{padding:.4rem .55rem;font-size:.88rem}}
+/* ===== LangBleu V2 — homepage layout in the classic lesson-index style (original code & identity) ===== */
+header.topbar{border-bottom:3px solid var(--primary)}
+.top-pick-btn{background:none;border:none;font-weight:700;text-transform:uppercase;font-size:.92rem;color:var(--text);padding:.5rem .4rem}
+.top-pick-btn:hover{color:var(--primary)}
+.top-flag-btn{background:none;border:none;font-size:1.5rem;padding:.2rem .4rem;line-height:1}
+.home-h1{font-weight:300;font-size:clamp(1.6rem,4.5vw,2.3rem);margin:1.4rem 0 1.2rem;color:var(--text)}
+.sel-row{display:grid;grid-template-columns:1fr 1fr auto;gap:1rem;align-items:stretch;max-width:1024px}
+.sel-box{border:1.5px solid var(--border);background:var(--surface);border-radius:6px;padding:1rem 1.4rem;font-size:1.12rem;text-align:start;position:relative;width:100%;color:var(--text)}
+.sel-box:hover{border-color:var(--primary)}
+.sel-box .caret{position:absolute;inset-inline-end:14px;top:50%;width:0;height:0;border-top:7px solid var(--muted);border-inline:5px solid transparent;transform:translateY(-50%)}
+[dir="rtl"] .sel-box .caret{transform:translateY(-50%)}
+.arrow-go{background:var(--accent);color:#fff;border:none;width:58px;min-height:58px;font-size:1.5rem;border-radius:6px;font-weight:800}
+.arrow-go:hover{background:var(--primary)}
+.para-index{font-size:1.08rem;line-height:1.65;color:var(--text);margin:1.4rem 0 .4rem;max-width:1024px}
+.pic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem 1rem;margin-top:1.2rem}
+@media(max-width:900px){.pic-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.pic-grid{grid-template-columns:repeat(2,1fr)}.sel-row{grid-template-columns:1fr}.arrow-go{width:100%}}
+.pic-card{cursor:pointer}
+.pic-img{aspect-ratio:1;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.3rem;color:#fff;text-align:center;padding:.6rem;box-shadow:var(--shadow)}
+.pic-img .pfl{font-size:2.6rem;line-height:1}
+.pic-img .pnt{font-weight:800;font-size:1.15rem;text-shadow:0 1px 4px rgba(0,0,0,.35);overflow-wrap:anywhere}
+.pic-link{display:flex;align-items:center;gap:.45rem;padding:.75rem .1rem 0;font-size:1.05rem;color:var(--text);font-weight:600}
+.pic-link .play{color:var(--accent);font-size:1.15rem}
+.pic-card:hover .pic-link{color:var(--primary)}
+.lb-modal{position:fixed;inset:0;z-index:200;background:var(--bg);overflow-y:auto;padding:1rem;display:none}
+.lb-modal.open{display:block}
+.lb-modal-in{max-width:1024px;margin:0 auto;background:var(--surface);border-radius:12px;padding:1.2rem 1.4rem 2.5rem;box-shadow:var(--shadow)}
+.lb-modal-head{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:.8rem}
+.lb-modal-head h2{font-weight:400;color:var(--muted);font-size:1.4rem}
+.lb-modal-exit{background:none;border:none;font-size:1.5rem;color:var(--muted)}
+.lb-pick-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.2rem 1rem}
+.lb-pick{display:flex;align-items:center;gap:.7rem;padding:.8rem .4rem;font-size:1.15rem;color:var(--muted);background:none;border:none;text-align:start;width:100%;border-radius:8px}
+.lb-pick:hover{background:var(--bg);color:var(--primary)}
+.lb-pick .pfl{font-size:1.4rem}
+.lb-close-row{text-align:center;padding:1.6rem 0 .5rem}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="logo" href="#/home" aria-label="LangBleu home">
+      <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2563EB"/><path d="M14 16h36v26H26l-8 9v-9h-4z" fill="#fff"/><circle cx="24" cy="29" r="3" fill="#2563EB"/><circle cx="32" cy="29" r="3" fill="#0D9488"/><circle cx="40" cy="29" r="3" fill="#F59E0B"/></svg>
+      Lang<span class="bleu">Bleu</span><span class="dotcom">.com</span>
+    </a>
+    <nav class="mainnav" id="mainnav">
+      <a href="#/home" data-nav="home">Home</a>
+      <a href="#/languages" data-nav="languages">Languages</a>
+      <a href="#/lessons" data-nav="lessons">Lessons</a>
+      <a href="#/games" data-nav="games">Games</a>
+      <a href="#/pronunciation" data-nav="pronunciation">Pronunciation</a>
+      <a href="#/profile" data-nav="profile">My Progress</a>
+      <a href="#/faq" data-nav="faq">FAQ</a>
+    </nav>
+    <button class="top-pick-btn" id="learnBtn" title="What language do you want to learn?">Learn Spanish ▾</button>
+    <button class="top-flag-btn" id="speakBtn" title="What language do you speak?">🇬🇧</button>
+    <button class="icon-btn" id="themeBtn" title="Light / dark mode">🌙</button>
+  </div>
+</header>
+<main class="container" id="app"><p class="muted">Loading LangBleu…</p></main>
+<footer>
+  <div class="footer-in">
+    <div><strong>LangBleu.com</strong><br><span class="muted small">Learn any language, free forever. Original lessons, games &amp; pronunciation practice.</span></div>
+    <div class="small">
+      <a href="#/about">About Us</a> · <a href="#/contact">Contact</a> · <a href="#/faq">FAQ</a><br>
+      <a href="#/privacy">Privacy Policy</a> · <a href="#/terms">Terms of Service</a> · <a href="#/admin">Admin</a>
+    </div>
+    <div class="muted small">© 2026 LangBleu. All content is original.<br>Audio uses your device's built-in voices.</div>
+  </div>
+</footer>
+<div class="lb-modal" id="langModal" role="dialog" aria-modal="true">
+  <div class="lb-modal-in">
+    <div class="lb-modal-head"><h2 id="lmTitle">What language do you want to learn?</h2><button class="lb-modal-exit" id="lmExit" aria-label="Close">✕</button></div>
+    <input id="lmSearch" type="search" placeholder="🔎 Search a language…">
+    <div class="lb-pick-grid" id="lmGrid" style="margin-top:.8rem"></div>
+    <div class="lb-close-row"><button class="btn accent" id="lmClose">Close ✕</button></div>
+  </div>
+</div>
+<div id="toast" class="toast" style="display:none"></div>
+<script>
+"use strict";
+/* ============ LangBleu — original platform. DB layer = localStorage (swap-ready schema, see ARCHITECTURE in admin) ============ */
+const LANGS=[
+["en","English","English","🇬🇧","en-US"],["es","Spanish","Español","🇪🇸","es-ES"],["fr","French","Français","🇫🇷","fr-FR"],["de","German","Deutsch","🇩🇪","de-DE"],["it","Italian","Italiano","🇮🇹","it-IT"],["pt","Portuguese","Português","🇵🇹","pt-PT"],["ar","Arabic","العربية","🇸🇦","ar-SA"],["ru","Russian","Русский","🇷🇺","ru-RU"],["zh","Chinese","中文","🇨🇳","zh-CN"],["ja","Japanese","日本語","🇯🇵","ja-JP"],["ko","Korean","한국어","🇰🇷","ko-KR"],["hi","Hindi","हिन्दी","🇮🇳","hi-IN"],["tr","Turkish","Türkçe","🇹🇷","tr-TR"],["nl","Dutch","Nederlands","🇳🇱","nl-NL"],["sv","Swedish","Svenska","🇸🇪","sv-SE"],["pl","Polish","Polski","🇵🇱","pl-PL"],["uk","Ukrainian","Українська","🇺🇦","uk-UA"],["el","Greek","Ελληνικά","🇬🇷","el-GR"],["he","Hebrew","עברית","🇮🇱","he-IL"],["fa","Persian","فارسی","🇮🇷","fa-IR"],["ur","Urdu","اردو","🇵🇰","ur-PK"],["bn","Bengali","বাংলা","🇧🇩","bn-BD"],["id","Indonesian","Bahasa Indonesia","🇮🇩","id-ID"],["ms","Malay","Bahasa Melayu","🇲🇾","ms-MY"],["th","Thai","ไทย","🇹🇭","th-TH"],["vi","Vietnamese","Tiếng Việt","🇻🇳","vi-VN"],["fil","Filipino","Filipino","🇵🇭","fil-PH"],["sw","Swahili","Kiswahili","🇰🇪","sw-KE"],["ha","Hausa","Hausa","🇳🇬","ha-NG"],["yo","Yoruba","Yorùbá","🇳🇬","yo-NG"],["ig","Igbo","Igbo","🇳🇬","ig-NG"],["am","Amharic","አማርኛ","🇪🇹","am-ET"],["no","Norwegian","Norsk","🇳🇴","nb-NO"],["da","Danish","Dansk","🇩🇰","da-DK"],["fi","Finnish","Suomi","🇫🇮","fi-FI"],["cs","Czech","Čeština","🇨🇿","cs-CZ"],["sk","Slovak","Slovenčina","🇸🇰","sk-SK"],["hu","Hungarian","Magyar","🇭🇺","hu-HU"],["ro","Romanian","Română","🇷🇴","ro-RO"],["bg","Bulgarian","Български","🇧🇬","bg-BG"],["hr","Croatian","Hrvatski","🇭🇷","hr-HR"],["sr","Serbian","Српски","🇷🇸","sr-RS"],["ca","Catalan","Català","🇪🇸","ca-ES"],["eu","Basque","Euskara","🇪🇸","eu-ES"],["gl","Galician","Galego","🇪🇸","gl-ES"],["ga","Irish","Gaeilge","🇮🇪","ga-IE"],["cy","Welsh","Cymraeg","🏴󐁧󐁢󐁷󐁥󐁳󐁳󐁿","cy-GB"],["et","Estonian","Eesti","🇪🇪","et-EE"],["lv","Latvian","Latviešu","🇱🇻","lv-LV"],["lt","Lithuanian","Lietuvių","🇱🇹","lt-LT"],["sl","Slovenian","Slovenščina","🇸🇮","sl-SI"],["mk","Macedonian","Македонски","🇲🇰","mk-MK"],["sq","Albanian","Shqip","🇦🇱","sq-AL"],["ka","Georgian","ქართული","🇬🇪","ka-GE"],["hy","Armenian","Հայերեն","🇦🇲","hy-AM"],["az","Azerbaijani","Azərbaycan","🇦🇿","az-AZ"],["kk","Kazakh","Қазақша","🇰🇿","kk-KZ"],["uz","Uzbek","O'zbek","🇺🇿","uz-UZ"],["ta","Tamil","தமிழ்","🇮🇳","ta-IN"],["te","Telugu","తెలుగు","🇮🇳","te-IN"],["mr","Marathi","मराठी","🇮🇳","mr-IN"],["pa","Punjabi","ਪੰਜਾਬੀ","🇮🇳","pa-IN"],["ne","Nepali","नेपाली","🇳🇵","ne-NP"],["si","Sinhala","සිංහල","🇱🇰","si-LK"],["km","Khmer","ខ្មែរ","🇰🇭","km-KH"],["lo","Lao","ລາວ","🇱🇦","lo-LA"],["my","Burmese","မြန်မာ","🇲🇲","my-MM"]
+].map(a=>({code:a[0],name:a[1],native:a[2],flag:a[3],tts:a[4]}));
+const FULL_CONTENT=["en","es","fr","de","it","pt","ar"]; // languages with the complete 120-phrase course in v1
+const CATS=[
+["👋","Greetings and Introductions"],["🔢","Numbers and Colors"],["👨‍👩‍👧","Family and Friends"],["🍽️","Food and Drinks"],["✈️","Travel and Transportation"],["🛍️","Shopping"],["💼","Work and Professions"],["🏥","Health and Body"],["🏠","Home and Furniture"],["🎓","School and Education"],["🌦️","Weather and Seasons"],["🕐","Time and Dates"],["🐾","Animals and Nature"],["💬","Everyday Expressions"],["🗣️","Basic Conversations"]
+];
+/* Each row: [cat, en, es, fr, de, it, pt, ar] — all original translations written for LangBleu */
+const P=[
+[0,"Hello","Hola","Bonjour","Hallo","Ciao","Olá","مرحباً"],
+[0,"Good morning","Buenos días","Bonjour","Guten Morgen","Buongiorno","Bom dia","صباح الخير"],
+[0,"Good evening","Buenas noches","Bonsoir","Guten Abend","Buonasera","Boa noite","مساء الخير"],
+[0,"What is your name?","¿Cómo te llamas?","Comment tu t'appelles ?","Wie heißt du?","Come ti chiami?","Como você se chama?","ما اسمك؟"],
+[0,"My name is…","Me llamo…","Je m'appelle…","Ich heiße…","Mi chiamo…","Meu nome é…","اسمي…"],
+[0,"Where are you from?","¿De dónde eres?","D'où viens-tu ?","Woher kommst du?","Di dove sei?","De onde você é?","من أين أنت؟"],
+[0,"Nice to meet you","Mucho gusto","Enchanté","Freut mich","Piacere","Prazer em conhecê-lo","سعيد بلقائك"],
+[0,"Goodbye","Adiós","Au revoir","Auf Wiedersehen","Arrivederci","Adeus","إلى اللقاء"],
+[1,"One","Uno","Un","Eins","Uno","Um","واحد"],
+[1,"Two","Dos","Deux","Zwei","Due","Dois","اثنان"],
+[1,"Three","Tres","Trois","Drei","Tre","Três","ثلاثة"],
+[1,"Ten","Diez","Dix","Zehn","Dieci","Dez","عشرة"],
+[1,"Red","Rojo","Rouge","Rot","Rosso","Vermelho","أحمر"],
+[1,"Blue","Azul","Bleu","Blau","Blu","Azul","أزرق"],
+[1,"Green","Verde","Vert","Grün","Verde","Verde","أخضر"],
+[1,"Yellow","Amarillo","Jaune","Gelb","Giallo","Amarelo","أصفر"],
+[2,"Mother","Madre","Mère","Mutter","Madre","Mãe","الأم"],
+[2,"Father","Padre","Père","Vater","Padre","Pai","الأب"],
+[2,"Brother","Hermano","Frère","Bruder","Fratello","Irmão","الأخ"],
+[2,"Sister","Hermana","Sœur","Schwester","Sorella","Irmã","الأخت"],
+[2,"Friend","Amigo","Ami","Freund","Amico","Amigo","الصديق"],
+[2,"Family","Familia","Famille","Familie","Famiglia","Família","العائلة"],
+[2,"Child","Niño","Enfant","Kind","Bambino","Criança","الطفل"],
+[2,"Grandmother","Abuela","Grand-mère","Großmutter","Nonna","Avó","الجدة"],
+[3,"Water","Agua","Eau","Wasser","Acqua","Água","الماء"],
+[3,"Bread","Pan","Pain","Brot","Pane","Pão","الخبز"],
+[3,"Coffee","Café","Café","Kaffee","Caffè","Café","القهوة"],
+[3,"I am hungry","Tengo hambre","J'ai faim","Ich habe Hunger","Ho fame","Estou com fome","أنا جائع"],
+[3,"The menu, please","La carta, por favor","Le menu, s'il vous plaît","Die Speisekarte, bitte","Il menu, per favore","O cardápio, por favor","القائمة من فضلك"],
+[3,"Delicious","Delicioso","Délicieux","Lecker","Delizioso","Delicioso","لذيذ"],
+[3,"Breakfast","Desayuno","Petit-déjeuner","Frühstück","Colazione","Café da manhã","الفطور"],
+[3,"The bill, please","La cuenta, por favor","L'addition, s'il vous plaît","Die Rechnung, bitte","Il conto, per favore","A conta, por favor","الفاتورة من فضلك"],
+[4,"Where is the airport?","¿Dónde está el aeropuerto?","Où est l'aéroport ?","Wo ist der Flughafen?","Dov'è l'aeroporto?","Onde fica o aeroporto?","أين المطار؟"],
+[4,"A ticket, please","Un billete, por favor","Un billet, s'il vous plaît","Ein Ticket, bitte","Un biglietto, per favore","Uma passagem, por favor","تذكرة من فضلك"],
+[4,"Left","Izquierda","Gauche","Links","Sinistra","Esquerda","اليسار"],
+[4,"Right","Derecha","Droite","Rechts","Destra","Direita","اليمين"],
+[4,"Hotel","Hotel","Hôtel","Hotel","Hotel","Hotel","الفندق"],
+[4,"Taxi","Taxi","Taxi","Taxi","Taxi","Táxi","سيارة أجرة"],
+[4,"How far is it?","¿A qué distancia está?","C'est à quelle distance ?","Wie weit ist es?","Quanto è lontano?","Quão longe é?","كم يبعد؟"],
+[4,"I am lost","Estoy perdido","Je suis perdu","Ich habe mich verirrt","Mi sono perso","Estou perdido","أنا تائه"],
+[5,"How much does it cost?","¿Cuánto cuesta?","Combien ça coûte ?","Wie viel kostet es?","Quanto costa?","Quanto custa?","كم ثمنه؟"],
+[5,"Too expensive","Demasiado caro","Trop cher","Zu teuer","Troppo caro","Muito caro","غالي جداً"],
+[5,"Cheap","Barato","Bon marché","Günstig","Economico","Barato","رخيص"],
+[5,"I am just looking","Solo estoy mirando","Je regarde seulement","Ich schaue mich nur um","Sto solo guardando","Estou só olhando","أنا أتفرج فقط"],
+[5,"Open","Abierto","Ouvert","Geöffnet","Aperto","Aberto","مفتوح"],
+[5,"Closed","Cerrado","Fermé","Geschlossen","Chiuso","Fechado","مغلق"],
+[5,"Money","Dinero","Argent","Geld","Soldi","Dinheiro","المال"],
+[5,"I will buy it","Lo compro","Je l'achète","Ich kaufe es","Lo compro","Vou comprar","سأشتريه"],
+[6,"Teacher","Profesor","Professeur","Lehrer","Insegnante","Professor","المعلم"],
+[6,"Doctor","Médico","Médecin","Arzt","Medico","Médico","الطبيب"],
+[6,"Engineer","Ingeniero","Ingénieur","Ingenieur","Ingegnere","Engenheiro","المهندس"],
+[6,"I work here","Trabajo aquí","Je travaille ici","Ich arbeite hier","Lavoro qui","Eu trabalho aqui","أعمل هنا"],
+[6,"Office","Oficina","Bureau","Büro","Ufficio","Escritório","المكتب"],
+[6,"Meeting","Reunión","Réunion","Besprechung","Riunione","Reunião","الاجتماع"],
+[6,"What is your job?","¿Cuál es tu trabajo?","Quel est ton travail ?","Was ist dein Beruf?","Qual è il tuo lavoro?","Qual é o seu trabalho?","ما هي مهنتك؟"],
+[6,"I am a student","Soy estudiante","Je suis étudiant","Ich bin Student","Sono uno studente","Sou estudante","أنا طالب"],
+[7,"Head","Cabeza","Tête","Kopf","Testa","Cabeça","الرأس"],
+[7,"Hand","Mano","Main","Hand","Mano","Mão","اليد"],
+[7,"I feel sick","Me siento mal","Je me sens mal","Mir geht es schlecht","Mi sento male","Estou me sentindo mal","أشعر بالمرض"],
+[7,"Hospital","Hospital","Hôpital","Krankenhaus","Ospedale","Hospital","المستشفى"],
+[7,"It hurts","Me duele","Ça fait mal","Es tut weh","Fa male","Está doendo","هذا يؤلم"],
+[7,"Water, please","Agua, por favor","De l'eau, s'il vous plaît","Wasser, bitte","Acqua, per favore","Água, por favor","ماء من فضلك"],
+[7,"Healthy","Saludable","En bonne santé","Gesund","Sano","Saudável","بصحة جيدة"],
+[7,"Tired","Cansado","Fatigué","Müde","Stanco","Cansado","متعب"],
+[8,"House","Casa","Maison","Haus","Casa","Casa","المنزل"],
+[8,"Kitchen","Cocina","Cuisine","Küche","Cucina","Cozinha","المطبخ"],
+[8,"Bedroom","Dormitorio","Chambre","Schlafzimmer","Camera da letto","Quarto","غرفة النوم"],
+[8,"Chair","Silla","Chaise","Stuhl","Sedia","Cadeira","الكرسي"],
+[8,"Table","Mesa","Table","Tisch","Tavolo","Mesa","الطاولة"],
+[8,"Door","Puerta","Porte","Tür","Porta","Porta","الباب"],
+[8,"Window","Ventana","Fenêtre","Fenster","Finestra","Janela","النافذة"],
+[8,"Garden","Jardín","Jardin","Garten","Giardino","Jardim","الحديقة"],
+[9,"School","Escuela","École","Schule","Scuola","Escola","المدرسة"],
+[9,"Book","Libro","Livre","Buch","Libro","Livro","الكتاب"],
+[9,"Pen","Bolígrafo","Stylo","Stift","Penna","Caneta","القلم"],
+[9,"I am learning","Estoy aprendiendo","J'apprends","Ich lerne","Sto imparando","Estou aprendendo","أنا أتعلم"],
+[9,"Question","Pregunta","Question","Frage","Domanda","Pergunta","السؤال"],
+[9,"Answer","Respuesta","Réponse","Antwort","Risposta","Resposta","الجواب"],
+[9,"Homework","Deberes","Devoirs","Hausaufgaben","Compiti","Lição de casa","الواجب المنزلي"],
+[9,"Exam","Examen","Examen","Prüfung","Esame","Exame","الامتحان"],
+[10,"Sunny","Soleado","Ensoleillé","Sonnig","Soleggiato","Ensolarado","مشمس"],
+[10,"Rainy","Lluvioso","Pluvieux","Regnerisch","Piovoso","Chuvoso","ممطر"],
+[10,"Cold","Frío","Froid","Kalt","Freddo","Frio","بارد"],
+[10,"Hot","Caluroso","Chaud","Heiß","Caldo","Quente","حار"],
+[10,"Spring","Primavera","Printemps","Frühling","Primavera","Primavera","الربيع"],
+[10,"Summer","Verano","Été","Sommer","Estate","Verão","الصيف"],
+[10,"Winter","Invierno","Hiver","Winter","Inverno","Inverno","الشتاء"],
+[10,"What is the weather like?","¿Qué tiempo hace?","Quel temps fait-il ?","Wie ist das Wetter?","Che tempo fa?","Como está o tempo?","كيف الطقس؟"],
+[11,"Today","Hoy","Aujourd'hui","Heute","Oggi","Hoje","اليوم"],
+[11,"Tomorrow","Mañana","Demain","Morgen","Domani","Amanhã","غداً"],
+[11,"Yesterday","Ayer","Hier","Gestern","Ieri","Ontem","أمس"],
+[11,"Monday","Lunes","Lundi","Montag","Lunedì","Segunda-feira","الاثنين"],
+[11,"What time is it?","¿Qué hora es?","Quelle heure est-il ?","Wie viel Uhr ist es?","Che ora è?","Que horas são?","كم الساعة؟"],
+[11,"Morning","Mañana","Matin","Morgen","Mattina","Manhã","الصباح"],
+[11,"Night","Noche","Nuit","Nacht","Notte","Noite","الليل"],
+[11,"Week","Semana","Semaine","Woche","Settimana","Semana","الأسبوع"],
+[12,"Dog","Perro","Chien","Hund","Cane","Cachorro","الكلب"],
+[12,"Cat","Gato","Chat","Katze","Gatto","Gato","القط"],
+[12,"Bird","Pájaro","Oiseau","Vogel","Uccello","Pássaro","الطائر"],
+[12,"Tree","Árbol","Arbre","Baum","Albero","Árvore","الشجرة"],
+[12,"Flower","Flor","Fleur","Blume","Fiore","Flor","الزهرة"],
+[12,"Sea","Mar","Mer","Meer","Mare","Mar","البحر"],
+[12,"Mountain","Montaña","Montagne","Berg","Montagna","Montanha","الجبل"],
+[12,"Sun","Sol","Soleil","Sonne","Sole","Sol","الشمس"],
+[13,"Thank you","Gracias","Merci","Danke","Grazie","Obrigado","شكراً لك"],
+[13,"Please","Por favor","S'il vous plaît","Bitte","Per favore","Por favor","من فضلك"],
+[13,"Excuse me","Perdón","Excusez-moi","Entschuldigung","Mi scusi","Com licença","عفواً"],
+[13,"Yes","Sí","Oui","Ja","Sì","Sim","نعم"],
+[13,"No","No","Non","Nein","No","Não","لا"],
+[13,"Sorry","Lo siento","Pardon","Es tut mir leid","Mi dispiace","Desculpe","آسف"],
+[13,"Congratulations","Felicidades","Félicitations","Glückwunsch","Congratulazioni","Parabéns","مبروك"],
+[13,"Good luck","Buena suerte","Bonne chance","Viel Glück","Buona fortuna","Boa sorte","حظاً سعيداً"],
+[14,"How are you?","¿Cómo estás?","Comment ça va ?","Wie geht es dir?","Come stai?","Como você está?","كيف حالك؟"],
+[14,"I am fine, thank you","Estoy bien, gracias","Je vais bien, merci","Mir geht es gut, danke","Sto bene, grazie","Estou bem, obrigado","أنا بخير، شكراً"],
+[14,"Do you speak English?","¿Hablas inglés?","Tu parles anglais ?","Sprichst du Englisch?","Parli inglese?","Você fala inglês?","هل تتكلم الإنجليزية؟"],
+[14,"I don't understand","No entiendo","Je ne comprends pas","Ich verstehe nicht","Non capisco","Não entendo","لا أفهم"],
+[14,"Can you help me?","¿Puedes ayudarme?","Tu peux m'aider ?","Kannst du mir helfen?","Puoi aiutarmi?","Você pode me ajudar?","هل يمكنك مساعدتي؟"],
+[14,"See you later","Hasta luego","À plus tard","Bis später","A dopo","Até logo","أراك لاحقاً"],
+[14,"I love learning languages","Me encanta aprender idiomas","J'adore apprendre les langues","Ich liebe es, Sprachen zu lernen","Adoro imparare le lingue","Adoro aprender idiomas","أحب تعلم اللغات"],
+[14,"Let's practice together","Practiquemos juntos","Pratiquons ensemble","Lass uns zusammen üben","Pratichiamo insieme","Vamos praticar juntos","لنتدرب معاً"]
+];
+const LANG_INDEX={en:1,es:2,fr:3,de:4,it:5,pt:6,ar:7};
+const EXAMPLES={en:"Practice: say it out loud, then use it in a short sentence of your own.",es:"Práctica: dilo en voz alta y úsalo en una frase corta.",fr:"Pratique : dis-le à voix haute, puis utilise-le dans une courte phrase.",de:"Übung: Sprich es laut aus und benutze es in einem kurzen Satz.",it:"Pratica: dillo a voce alta e usalo in una frase breve.",pt:"Prática: diga em voz alta e use em uma frase curta.",ar:"تدريب: قُلها بصوت عالٍ ثم استعملها في جملة قصيرة من عندك."};
+
+/* ---------- State & storage (DB layer) ---------- */
+const DB={
+ get(k,d){try{const v=localStorage.getItem("langbleu_"+k);return v?JSON.parse(v):d}catch(e){return d}},
+ set(k,v){try{localStorage.setItem("langbleu_"+k,JSON.stringify(v))}catch(e){}}
+};
+let settings=DB.get("settings",{native:"en",target:"es",theme:"light"});
+let progress=DB.get("progress",{done:{},favs:[],scores:[],visits:0,lastLesson:""});
+let user=DB.get("user",null);
+let customPhrases=DB.get("custom_phrases",[]);
+let customLangs=DB.get("custom_langs",[]);
+let adminCfg=DB.get("admin",{adsenseId:"",adminPass:"admin123"});
+progress.visits=(progress.visits||0)+1; DB.set("progress",progress);
+function allLangs(){return LANGS.concat(customLangs)}
+function langBy(code){return allLangs().find(l=>l.code===code)||LANGS[0]}
+function allPhrases(){
+  const base=P.map((r,i)=>({id:"p"+i,cat:r[0],texts:{en:r[1],es:r[2],fr:r[3],de:r[4],it:r[5],pt:r[6],ar:r[7]}}));
+  return base.concat(customPhrases);
+}
+function txt(phrase,code){return phrase.texts[code]||phrase.texts.en||""}
+function pairSupported(){return FULL_CONTENT.includes(settings.native)&&FULL_CONTENT.includes(settings.target)}
+function pronGuide(phrase,code){
+  const t=txt(phrase,code);
+  if(code==="ar")return "Pronounce each syllable clearly; stress the first syllable.";
+  if(code==="fr")return "Soft, flowing pronunciation — final consonants are often silent.";
+  if(code==="es")return "Pronounce every vowel clearly: a-e-i-o-u.";
+  if(code==="de")return "Pronounce every letter; compound words are stressed on the first part.";
+  return "Say it slowly, syllable by syllable: "+t.split(" ").map(w=>w).join(" · ");
+}
+function speak(text,code){
+  try{
+    const u=new SpeechSynthesisUtterance(text);
+    u.lang=langBy(code).tts; u.rate=0.92;
+    const vs=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.indexOf(u.lang.slice(0,2))===0);
+    if(vs.length)u.voice=vs[0];
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  }catch(e){toast("Audio is not available on this device.")}
+}
+function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",2600)}
+function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const t=a[i];a[i]=a[j];a[j]=t}return a}
+function saveProgress(){DB.set("progress",progress)}
+function markDone(id){progress.done[id]=true;saveProgress()}
+function isFav(id){return progress.favs.includes(id)}
+function toggleFav(id){if(isFav(id))progress.favs=progress.favs.filter(f=>f!==id);else progress.favs.push(id);saveProgress()}
+function recordScore(game,score,total){progress.scores.push({game:game,score:score,total:total,date:new Date().toISOString().slice(0,10)});if(progress.scores.length>200)progress.scores=progress.scores.slice(-200);saveProgress()}
+function doneCount(){return Object.keys(progress.done).length}
+function adSlot(label){const id=adminCfg.adsenseId;return '<div class="ad-slot">📢 AdSense Space — '+esc(label)+(id?(' · Publisher: '+esc(id)):' · Add your publisher ID in Admin → Monetization to activate')+'</div>'}
+function applyTheme(){document.documentElement.setAttribute("data-theme",settings.theme);document.getElementById("themeBtn").textContent=settings.theme==="dark"?"☀️":"🌙"}
+document.getElementById("themeBtn").onclick=function(){settings.theme=settings.theme==="dark"?"light":"dark";DB.set("settings",settings);applyTheme()};
+function applyDir(){document.documentElement.dir=(settings.native==="ar"||settings.target==="ar"&&settings.native==="ar")?"rtl":"ltr";if(settings.native==="ar"){document.documentElement.dir="rtl";document.documentElement.lang="ar"}else{document.documentElement.dir="ltr";document.documentElement.lang="en"}}
+function langOptions(sel,selected){return allLangs().map(l=>'<option value="'+l.code+'"'+(l.code===selected?" selected":"")+'>'+l.flag+" "+esc(l.name)+" ("+esc(l.native)+")</option>").join("")}
+function pairBarHTML(){
+ return '<div class="pair-bar"><div><label>I speak (native)</label><select id="nativeSel">'+langOptions(0,settings.native)+'</select></div>'
+ +'<button class="swap-btn" id="swapBtn" title="Swap languages">⇄</button>'
+ +'<div><label>I want to learn (target)</label><select id="targetSel">'+langOptions(0,settings.target)+'</select></div></div>'
+ +'<p class="small" style="margin-top:.7rem;opacity:.92">Full 120-phrase course is complete for: English, Spanish, French, German, Italian, Portuguese &amp; Arabic. All 55+ languages are selectable and ready for new content in Admin.</p>';
+}
+function bindPairBar(root){
+  const n=root.querySelector("#nativeSel"),t=root.querySelector("#targetSel"),s=root.querySelector("#swapBtn");
+  if(!n)return;
+  n.onchange=function(){settings.native=n.value;DB.set("settings",settings);applyDir();render()};
+  t.onchange=function(){settings.target=t.value;DB.set("settings",settings);render()};
+  if(s)s.onclick=function(){const tmp=settings.native;settings.native=settings.target;settings.target=tmp;DB.set("settings",settings);applyDir();render()};
+}
+function supportNote(){
+  if(pairSupported())return "";
+  return '<div class="card" style="border-color:var(--accent2);margin:1rem 0"><strong>ℹ️ Content note:</strong> The complete verified course currently covers English, Spanish, French, German, Italian, Portuguese and Arabic. For this pair, LangBleu shows the English source text so you can still practise, and new translations can be added in <a href="#/admin">Admin → Lessons</a>. We never invent translations.</div>';
+}
+function phraseRow(ph,showCat){
+  const target=txt(ph,settings.target),native=txt(ph,settings.native);
+  return '<div class="phrase-row"><button class="audio-btn" data-speak="'+esc(target)+'" title="Listen">🔊</button><div style="flex:1;min-width:180px"><div class="target">'+esc(target)+'</div><div class="native">'+esc(native)+'</div><div class="muted small">'+esc(pronGuide(ph,settings.target))+'</div>'+(showCat?'<span class="badge">'+CATS[ph.cat][0]+" "+CATS[ph.cat][1]+"</span>":"")+'</div>'
+  +(progress.done[ph.id]?'<span class="badge">✓ Done</span>':"")
+  +'<button class="fav-btn" data-fav="'+ph.id+'" title="Favorite">'+(isFav(ph.id)?"⭐":"☆")+'</button>'
+  +'<button class="btn small ghost" data-done="'+ph.id+'">Mark done</button></div>';
+}
+function bindPhraseRows(root){
+  root.querySelectorAll("[data-speak]").forEach(b=>b.onclick=function(){speak(b.getAttribute("data-speak"),settings.target)});
+  root.querySelectorAll("[data-fav]").forEach(b=>b.onclick=function(){toggleFav(b.getAttribute("data-fav"));render()});
+  root.querySelectorAll("[data-done]").forEach(b=>b.onclick=function(){markDone(b.getAttribute("data-done"));toast("Lesson marked complete ✓");render()});
+}
+/* ---------- Language picker modal (V2) ---------- */
+let pickerMode="target";
+function openPicker(mode){
+  pickerMode=mode;
+  document.getElementById("lmTitle").textContent=mode==="native"?"What language do you speak?":"What language do you want to learn?";
+  document.getElementById("lmSearch").value="";
+  drawPicker("");
+  document.getElementById("langModal").classList.add("open");
+}
+function closePicker(){document.getElementById("langModal").classList.remove("open")}
+function drawPicker(q){
+  const grid=document.getElementById("lmGrid");
+  grid.innerHTML=allLangs().filter(l=>!q||(l.name+" "+l.native+" "+l.code).toLowerCase().includes(q.toLowerCase())).map(l=>'<button class="lb-pick" data-pick="'+l.code+'"><span class="pfl">'+l.flag+'</span><span>'+esc(l.name)+'</span></button>').join("")||'<p class="muted">No language matches your search.</p>';
+  grid.querySelectorAll("[data-pick]").forEach(b=>b.onclick=function(){
+    const code=b.getAttribute("data-pick");
+    if(pickerMode==="native"){settings.native=code;applyDir()}else{settings.target=code}
+    DB.set("settings",settings);closePicker();render();
+  });
+}
+function syncTopBar(){
+  const lb=document.getElementById("learnBtn"),sb=document.getElementById("speakBtn");
+  if(lb)lb.textContent="Learn "+langBy(settings.target).name+" ▾";
+  if(sb)sb.textContent=langBy(settings.native).flag;
+}
+/* ---------- Pages ---------- */
+const app=document.getElementById("app");
+function pageHome(){
+  const gradients=[["#2563EB","#0D9488"],["#7C3AED","#2563EB"],["#DB2777","#F59E0B"],["#0D9488","#65A30D"],["#EA580C","#DC2626"],["#0891B2","#2563EB"],["#4F46E5","#9333EA"],["#B45309","#0D9488"]];
+  app.innerHTML=adSlot("Homepage — top 728×90 desktop / 320×50 phone")
+  +'<h1 class="home-h1">Speak a New Language — Free, Simple, No Sign-Up</h1>'
+  +'<div class="sel-row"><button class="sel-box" id="homeSpeak">I speak '+esc(langBy(settings.native).name)+'<span class="caret"></span></button>'
+  +'<button class="sel-box" id="homeLearn">I want to learn '+esc(langBy(settings.target).name)+'<span class="caret"></span></button>'
+  +'<button class="arrow-go" id="homeGo" title="Start learning">→</button></div>'
+  +'<p class="para-index">LangBleu is the easy way to start speaking a new language: no fees, no account, no downloads — just short, practical lessons you can open and use in seconds. Build real vocabulary, hear every phrase out loud, and train your pronunciation with games and speaking practice in more than 50 languages. Picking up Spanish for work, French for travel, or Arabic to talk with family? Start with the phrases people actually use every day, learn at your own pace, and come back whenever you have two free minutes. Teachers use LangBleu in class; learners use it on the bus. Scroll down and choose your language.</p>'
+  +supportNote()
+  +'<div class="pic-grid">'+allLangs().map(function(l,i){const g=gradients[i%gradients.length];return '<div class="pic-card" data-learn="'+l.code+'"><div class="pic-img" style="background:linear-gradient(135deg,'+g[0]+','+g[1]+')"><div class="pfl">'+l.flag+'</div><div class="pnt">'+esc(l.native)+'</div></div><div class="pic-link"><span class="play">▶</span><span>Learn '+esc(l.name)+'</span></div></div>'}).join("")+'</div>'
+  +'<h2 class="section-title">Learn 50+ Languages Online for Free with LangBleu</h2>'
+  +'<p class="para-index">LangBleu helps you speak with confidence — for work, travel, school, or your new community. Every course is built from everyday phrases, with audio, a pronunciation guide, and interactive practice: flashcards, matching, memory, listening, quizzes and writing exercises. No registration, short effective lessons, and learning from your own native language.</p>'
+  +'<h3 style="margin-top:1rem">Language Learning That Opens Doors</h3>'
+  +'<p class="para-index">A student raising their grades, a traveller getting ready to explore, a new neighbour settling in — a few phrases change everything. Start your free language journey today.</p>'
+  +'<h2 class="section-title">📚 Lesson categories</h2><div class="grid c3">'+CATS.map((c,i)=>'<a class="card" href="#/lesson/'+i+'" style="color:var(--text)"><div style="font-size:1.7rem">'+c[0]+'</div><strong>'+c[1]+'</strong><div class="muted small">8 phrases · audio · examples</div></a>').join("")+'</div>'
+  +'<div class="card" style="margin-top:1rem"><h3>📈 Your progress</h3><div class="progress-wrap" style="margin:.6rem 0"><div class="progress-bar" style="width:'+Math.round(doneCount()/allPhrases().length*100)+'%"></div></div><p class="muted small">'+doneCount()+" of "+allPhrases().length+' phrases completed · '+progress.favs.length+' favorites · <a href="#/profile">View my progress</a> · <a href="#/games">Play the games</a></p></div>'
+  +adSlot("Homepage — bottom 728×90 / 320×50");
+  app.querySelector("#homeSpeak").onclick=function(){openPicker("native")};
+  app.querySelector("#homeLearn").onclick=function(){openPicker("target")};
+  app.querySelector("#homeGo").onclick=function(){location.hash="#/lessons"};
+  app.querySelectorAll("[data-learn]").forEach(el=>el.onclick=function(){settings.target=el.getAttribute("data-learn");DB.set("settings",settings);location.hash="#/lessons"});
+}
+function pageLanguages(){
+  app.innerHTML='<h1 class="section-title">🌍 All languages ('+allLangs().length+')</h1>'
+  +'<input id="langSearch" type="search" placeholder="🔎 Search a language… e.g. Spanish, العربية, 日本語">'
+  +supportNote()+'<div class="grid c4" id="langGrid" style="margin-top:1rem"></div>'+adSlot("Languages page");
+  const grid=app.querySelector("#langGrid");
+  function draw(q){
+    grid.innerHTML=allLangs().filter(l=>!q||(l.name+" "+l.native+" "+l.code).toLowerCase().includes(q.toLowerCase())).map(l=>'<div class="card lang-card" data-code="'+l.code+'"><div class="flag">'+l.flag+'</div><h3>'+esc(l.name)+'</h3><div class="muted small">'+esc(l.native)+'</div>'+(FULL_CONTENT.includes(l.code)?'<span class="badge">Full course ✓</span>':'<span class="small muted">Selectable · content growing</span>')+'</div>').join("")||'<p class="muted">No language matches your search.</p>';
+    grid.querySelectorAll("[data-code]").forEach(el=>el.onclick=function(){settings.target=el.getAttribute("data-code");DB.set("settings",settings);toast("Target language: "+langBy(settings.target).name);location.hash="#/lessons"});
+  }
+  draw(""); app.querySelector("#langSearch").oninput=function(e){draw(e.target.value)};
+}
+function pageLessons(){
+  const q=(window._lessonQ||"");
+  app.innerHTML='<h1 class="section-title">📚 Lessons — '+esc(langBy(settings.native).name)+' → '+esc(langBy(settings.target).name)+'</h1>'
+  +'<div class="card"><label class="small" style="font-weight:700">I speak</label><select id="nativeSel">'+langOptions(0,settings.native)+'</select><label class="small" style="font-weight:700;display:block;margin-top:.6rem">I want to learn</label><select id="targetSel">'+langOptions(0,settings.target)+'</select></div>'
+  +supportNote()
+  +'<input id="lessonSearch" type="search" placeholder="🔎 Search lessons and phrases…" value="'+esc(q)+'" style="margin-top:1rem">'
+  +'<h2 class="section-title">Categories</h2><div class="grid c3">'+CATS.map((c,i)=>'<a class="card" href="#/lesson/'+i+'" style="color:var(--text)"><div style="font-size:1.6rem">'+c[0]+'</div><strong>'+c[1]+'</strong><div class="muted small">'+allPhrases().filter(p=>p.cat===i&&progress.done[p.id]).length+'/8 completed</div></a>').join("")+'</div>'
+  +'<h2 class="section-title">All phrases ('+allPhrases().length+')</h2><div id="phraseList"></div>'+adSlot("Lessons — between categories");
+  bindPairBar(app);
+  const list=app.querySelector("#phraseList");
+  function draw(query){
+    const items=allPhrases().filter(ph=>!query||(txt(ph,settings.target)+" "+txt(ph,settings.native)+" "+txt(ph,"en")).toLowerCase().includes(query.toLowerCase()));
+    list.innerHTML=items.slice(0,120).map(ph=>phraseRow(ph,true)).join("")||'<p class="muted">No phrase matches. Try another word.</p>';
+    bindPhraseRows(list);
+  }
+  draw(q);
+  app.querySelector("#lessonSearch").oninput=function(e){window._lessonQ=e.target.value;draw(e.target.value)};
+}
+function pageLesson(catIdx){
+  catIdx=parseInt(catIdx,10)||0; const cat=CATS[catIdx];
+  const items=allPhrases().filter(p=>p.cat===catIdx);
+  progress.lastLesson="lesson/"+catIdx; saveProgress();
+  app.innerHTML='<p><a href="#/lessons">← All lessons</a></p><h1 class="section-title">'+cat[0]+" "+cat[1]+'</h1>'
+  +'<p class="muted">'+esc(langBy(settings.native).name)+' → '+esc(langBy(settings.target).name)+' · '+items.length+' phrases · Tap 🔊 to listen, ⭐ to save, and mark each phrase done.</p>'
+  +supportNote()
+  +items.map(ph=>phraseRow(ph,false)).join("")
+  +'<div class="card"><h3>✍️ Example practice</h3><p>'+esc(EXAMPLES[settings.native]||EXAMPLES.en)+'</p><p class="muted small">Example with “'+esc(txt(items[0],settings.target))+'”: use it once today in a real conversation or message.</p><div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem"><a class="btn accent" href="#/flashcards">Practice with flashcards</a><a class="btn ghost" href="#/games">Play a game with this topic</a></div></div>'
+  +adSlot("Lesson page — in-article")
+  +'<div style="display:flex;justify-content:space-between;margin-top:1rem;flex-wrap:wrap;gap:.6rem">'+(catIdx>0?'<a class="btn ghost" href="#/lesson/'+(catIdx-1)+'">← Previous topic</a>':"<span></span>")+(catIdx<CATS.length-1?'<a class="btn" href="#/lesson/'+(catIdx+1)+'">Next topic →</a>':"")+'</div>';
+  bindPhraseRows(app);
+}
+
+/* ---------- Games ---------- */
+function gamePool(n){return shuffle(allPhrases()).slice(0,n||10)}
+function gameShell(title,inner){app.innerHTML='<p><a href="#/games">← All games</a></p><h1 class="section-title">'+title+'</h1><p class="muted small">Playing: '+esc(langBy(settings.native).name)+' → '+esc(langBy(settings.target).name)+' · Change languages on the <a href="#/lessons">Lessons page</a>.</p><div class="card" id="gameBox">'+inner+'</div>'+adSlot("Between games");return app.querySelector("#gameBox")}
+function pageGames(){
+  const games=[["🃏","Flashcards","#/flashcards","Flip cards and test your memory"],["🧩","Matching Game","#/game/matching","Match words to translations"],["🧠","Memory Game","#/game/memory","Find the hidden pairs"],["⭕","Tic-Tac-Toe","#/game/ttt","Answer correctly to place your X"],["🎧","Listening Game","#/listening","Hear it, choose the meaning"],["❓","Multiple-Choice Quiz","#/game/quiz","10 questions, instant feedback"],["✍️","Word Writing","#/game/writing","Type the translation"],["🔤","Letter Ordering","#/game/letters","Rebuild the word letter by letter"]];
+  app.innerHTML='<h1 class="section-title">🎮 Educational games</h1><p class="muted">Every game uses your current language pair and saves your scores to My Progress.</p><div class="grid c3">'
+  +games.map(g=>'<a class="card" href="'+g[2]+'" style="color:var(--text)"><div style="font-size:2rem">'+g[0]+'</div><h3>'+g[1]+'</h3><p class="muted small">'+g[3]+'</p></a>').join("")+'</div>'+adSlot("Games hub");
+}
+function pageFlashcards(){
+  let pool=gamePool(12),idx=0,known=0;
+  const box=gameShell("🃏 Flashcards",'<div class="flashcard" id="fc"><div class="flashcard-in"><div class="fc-face fc-front"><div id="fcTarget"></div><button class="audio-btn" id="fcAudio" style="background:#fff;color:var(--primary)">🔊</button><div class="small" style="font-weight:400">Tap card to flip</div></div><div class="fc-face fc-back"><div id="fcNative"></div><div class="muted small" id="fcPron"></div></div></div></div><div style="display:flex;gap:.6rem;margin-top:1rem;flex-wrap:wrap"><button class="btn danger" id="fcNo">✗ Still learning</button><button class="btn accent" id="fcYes">✓ I know it</button></div><p style="margin-top:.8rem"><span class="score-pill" id="fcScore"></span> <span class="muted small" id="fcCount"></span></p>');
+  const fc=box.querySelector("#fc");
+  function draw(){
+    if(idx>=pool.length){box.innerHTML='<h2>🎉 Round complete!</h2><p>You knew <strong>'+known+" / "+pool.length+'</strong> cards.</p><div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem"><button class="btn" onclick="location.hash=\'#/flashcards\';render()">Play again</button><a class="btn ghost" href="#/games">More games</a></div>';recordScore("Flashcards",known,pool.length);pool.forEach(p=>markDone(p.id));return}
+    fc.classList.remove("flipped");
+    box.querySelector("#fcTarget").textContent=txt(pool[idx],settings.target);
+    box.querySelector("#fcNative").textContent=txt(pool[idx],settings.native);
+    box.querySelector("#fcPron").textContent=pronGuide(pool[idx],settings.target);
+    box.querySelector("#fcScore").textContent="Score: "+known;
+    box.querySelector("#fcCount").textContent="Card "+(idx+1)+" of "+pool.length;
+  }
+  fc.onclick=function(e){if(e.target.id!=="fcAudio")fc.classList.toggle("flipped")};
+  box.querySelector("#fcAudio").onclick=function(e){e.stopPropagation();speak(txt(pool[idx],settings.target),settings.target)};
+  box.querySelector("#fcYes").onclick=function(){known++;idx++;draw()};
+  box.querySelector("#fcNo").onclick=function(){idx++;draw()};
+  draw();
+}
+function pageMatching(){
+  const pool=gamePool(6); let selected=null,matched=0,errors=0;
+  const left=shuffle(pool),right=shuffle(pool);
+  const box=gameShell("🧩 Matching Game",'<p class="muted">Tap a word, then tap its translation.</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem" id="matchGrid">'
+   +left.map(p=>'<button class="opt-btn" data-side="L" data-id="'+p.id+'">'+esc(txt(p,settings.target))+'</button>').join("")
+   +'</div><div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem" id="matchGrid2">'
+   +right.map(p=>'<button class="opt-btn" data-side="R" data-id="'+p.id+'">'+esc(txt(p,settings.native))+'</button>').join("")
+   +'</div><p><span class="score-pill" id="mScore">Matched: 0 / '+pool.length+'</span> <span class="muted small" id="mErr">Mistakes: 0</span></p>');
+  function pick(btn){
+    if(btn.classList.contains("correct"))return;
+    if(!selected){selected=btn;btn.style.borderColor="var(--primary)";btn.style.background="var(--bg)";return}
+    if(selected===btn){selected=null;btn.style.background="";return}
+    if(selected.getAttribute("data-side")===btn.getAttribute("data-side")){selected.style.background="";selected=btn;btn.style.background="var(--bg)";return}
+    if(selected.getAttribute("data-id")===btn.getAttribute("data-id")){selected.classList.add("correct");btn.classList.add("correct");matched++;markDone(btn.getAttribute("data-id"))}
+    else{selected.classList.add("wrong");btn.classList.add("wrong");errors++;setTimeout(()=>{selected.classList.remove("wrong");btn.classList.remove("wrong")},600)}
+    selected.style.background="";selected=null;
+    box.querySelector("#mScore").textContent="Matched: "+matched+" / "+pool.length;
+    box.querySelector("#mErr").textContent="Mistakes: "+errors;
+    if(matched===pool.length){recordScore("Matching",pool.length-errors,pool.length);box.insertAdjacentHTML("beforeend",'<p style="margin-top:.8rem"><strong>🎉 Complete!</strong> Score saved. <button class="btn small" onclick="render()">Play again</button></p>')}
+  }
+  box.querySelectorAll(".opt-btn").forEach(b=>b.onclick=function(){pick(b)});
+}
+function pageMemory(){
+  const pool=gamePool(6); let cards=shuffle(pool.flatMap(p=>[{id:p.id,kind:"t",label:txt(p,settings.target)},{id:p.id,kind:"n",label:txt(p,settings.native)}]));
+  let open=[],donePairs=0,moves=0,lock=false;
+  const box=gameShell("🧠 Memory Game",'<p class="muted">Flip two cards. Match the word with its translation.</p><div class="mem-grid" id="memGrid"></div><p style="margin-top:.8rem"><span class="score-pill" id="memScore">Pairs: 0 / '+pool.length+'</span> <span class="muted small" id="memMoves">Moves: 0</span></p>');
+  const grid=box.querySelector("#memGrid");
+  grid.innerHTML=cards.map((c,i)=>'<div class="mem-card" data-i="'+i+'">❓</div>').join("");
+  grid.querySelectorAll(".mem-card").forEach(el=>el.onclick=function(){
+    if(lock)return; const i=+el.getAttribute("data-i"),c=cards[i];
+    if(el.classList.contains("open")||el.classList.contains("done"))return;
+    el.classList.add("open");el.textContent=c.label;open.push({el:el,c:c});
+    if(open.length===2){moves++;box.querySelector("#memMoves").textContent="Moves: "+moves;
+      if(open[0].c.id===open[1].c.id&&open[0].c.kind!==open[1].c.kind){open.forEach(o=>{o.el.classList.add("done")});donePairs++;markDone(c.id);open=[];box.querySelector("#memScore").textContent="Pairs: "+donePairs+" / "+pool.length;
+        if(donePairs===pool.length){recordScore("Memory",Math.max(0,pool.length*2-moves),pool.length*2);grid.insertAdjacentHTML("afterend",'<p style="margin-top:.8rem"><strong>🎉 You found all pairs in '+moves+' moves!</strong></p>')}}
+      else{lock=true;const o=open;open=[];setTimeout(()=>{o.forEach(x=>{x.el.classList.remove("open");x.el.textContent="❓"});lock=false},850)}}
+  });
+}
+function pageTTT(){
+  let board=Array(9).fill(""),turn="X",pool=gamePool(30),qi=0,over=false;
+  const box=gameShell("⭕ Tic-Tac-Toe — answer to play",'<p class="muted">You are <strong>X</strong>. Answer the question correctly to place your X; a wrong answer loses the turn to the computer (O).</p><div id="tttQ"></div><div class="ttt" id="tttBoard" style="margin-top:1rem"></div><p id="tttMsg" style="margin-top:.8rem;font-weight:700"></p>');
+  const boardEl=box.querySelector("#tttBoard"),qEl=box.querySelector("#tttQ"),msg=box.querySelector("#tttMsg");
+  function win(b){const L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];for(const l of L){if(b[l[0]]&&b[l[0]]===b[l[1]]&&b[l[1]]===b[l[2]])return b[l[0]]}return b.every(x=>x)?"draw":null}
+  function ask(cell){
+    const ph=pool[qi%pool.length];qi++;
+    const opts=shuffle([ph].concat(shuffle(allPhrases().filter(p=>p.id!==ph.id)).slice(0,3)));
+    qEl.innerHTML='<div class="card" style="box-shadow:none"><strong>What does “'+esc(txt(ph,settings.target))+'” mean?</strong> <button class="audio-btn" id="tttAudio" style="width:36px;height:36px">🔊</button><div style="margin-top:.6rem">'+opts.map(o=>'<button class="opt-btn" data-opt="'+o.id+'">'+esc(txt(o,settings.native))+'</button>').join("")+'</div></div>';
+    qEl.querySelector("#tttAudio").onclick=function(){speak(txt(ph,settings.target),settings.target)};
+    qEl.querySelectorAll("[data-opt]").forEach(b=>b.onclick=function(){
+      if(b.getAttribute("data-opt")===ph.id){board[cell]="X";markDone(ph.id);msg.textContent="✓ Correct! Your X is placed."}
+      else{msg.textContent="✗ Wrong — the answer was “"+txt(ph,settings.native)+"”. Computer plays.";cpu()}
+      qEl.innerHTML="";draw();check();
+    });
+  }
+  function cpu(){const free=board.map((v,i)=>v?"":i).filter(v=>v!=="");if(free.length)board[free[Math.floor(Math.random()*free.length)]]="O"}
+  function draw(){boardEl.innerHTML=board.map((v,i)=>'<button data-cell="'+i+'">'+v+'</button>').join("");boardEl.querySelectorAll("[data-cell]").forEach(b=>b.onclick=function(){if(over)return;const i=+b.getAttribute("data-cell");if(board[i])return;if(qEl.innerHTML)return;ask(i)})}
+  function check(){const w=win(board);if(w){over=true;if(w==="X"){msg.textContent="🏆 You win! Score saved.";recordScore("Tic-Tac-Toe",1,1)}else if(w==="O"){msg.textContent="🤖 Computer wins this round. Try again!";recordScore("Tic-Tac-Toe",0,1)}else{msg.textContent="🤝 It's a draw!";recordScore("Tic-Tac-Toe",1,2)}qEl.innerHTML='<button class="btn" onclick="render()">Play again</button>'}}
+  draw();
+}
+function quizEngine(title,mode){
+  const pool=gamePool(10); let idx=0,score=0;
+  const box=gameShell(title,'<div id="qBody"></div>');
+  const body=box.querySelector("#qBody");
+  function draw(){
+    if(idx>=pool.length){body.innerHTML='<h2>🎉 Finished!</h2><p>Your score: <strong>'+score+" / "+pool.length+'</strong></p><div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem"><button class="btn" onclick="render()">Play again</button><a class="btn ghost" href="#/games">More games</a></div>';recordScore(title.replace(/<[^>]+>/g,""),score,pool.length);return}
+    const ph=pool[idx];
+    if(mode==="listening"){
+      body.innerHTML='<p class="muted">Question '+(idx+1)+' / '+pool.length+' · Listen, then choose the meaning.</p><button class="btn accent" id="qPlay" style="font-size:1.1rem">🔊 Play audio</button><div style="margin-top:1rem" id="qOpts"></div><p><span class="score-pill">Score: '+score+'</span></p>';
+      body.querySelector("#qPlay").onclick=function(){speak(txt(ph,settings.target),settings.target)};
+      speak(txt(ph,settings.target),settings.target);
+    }else if(mode==="writing"){
+      body.innerHTML='<p class="muted">Question '+(idx+1)+' / '+pool.length+'</p><h3>Write this in '+esc(langBy(settings.target).name)+':</h3><p style="font-size:1.3rem;font-weight:700">'+esc(txt(ph,settings.native))+'</p><input id="wInput" type="text" placeholder="Type your answer…" autocomplete="off"><div style="display:flex;gap:.6rem;margin-top:.7rem"><button class="btn" id="wCheck">Check</button><button class="btn ghost" id="wHint">Hear it 🔊</button></div><p id="wFb" style="margin-top:.6rem;font-weight:700"></p><p><span class="score-pill">Score: '+score+'</span></p>';
+      body.querySelector("#wHint").onclick=function(){speak(txt(ph,settings.target),settings.target)};
+      body.querySelector("#wCheck").onclick=function(){
+        const v=body.querySelector("#wInput").value.trim().toLowerCase(),a=txt(ph,settings.target).toLowerCase();
+        const fb=body.querySelector("#wFb");
+        if(v===a){score++;markDone(ph.id);fb.textContent="✓ Perfect!";fb.style.color="var(--success)"}
+        else{fb.textContent="✗ Correct answer: "+txt(ph,settings.target);fb.style.color="var(--danger)"}
+        setTimeout(function(){idx++;draw()},1400);
+      };
+      body.querySelector("#wInput").focus(); return;
+    }else{
+      body.innerHTML='<p class="muted">Question '+(idx+1)+' / '+pool.length+'</p><h3>What does this mean?</h3><p style="font-size:1.5rem;font-weight:800">'+esc(txt(ph,settings.target))+' <button class="audio-btn" id="qAudio" style="width:38px;height:38px">🔊</button></p><div id="qOpts" style="margin-top:.7rem"></div><p><span class="score-pill">Score: '+score+'</span></p>';
+      body.querySelector("#qAudio").onclick=function(){speak(txt(ph,settings.target),settings.target)};
+    }
+    const opts=shuffle([ph].concat(shuffle(allPhrases().filter(p=>p.id!==ph.id)).slice(0,3)));
+    body.querySelector("#qOpts").innerHTML=opts.map(o=>'<button class="opt-btn" data-opt="'+o.id+'">'+esc(txt(o,settings.native))+'</button>').join("");
+    body.querySelectorAll("[data-opt]").forEach(b=>b.onclick=function(){
+      const ok=b.getAttribute("data-opt")===ph.id;
+      b.classList.add(ok?"correct":"wrong"); if(ok){score++;markDone(ph.id)}
+      body.querySelectorAll("[data-opt]").forEach(x=>{if(x.getAttribute("data-opt")===ph.id)x.classList.add("correct");x.disabled=true});
+      setTimeout(function(){idx++;draw()},1100);
+    });
+  }
+  draw();
+}
+function pageLetters(){
+  const words=allPhrases().filter(p=>txt(p,settings.target).length>=3&&txt(p,settings.target).length<=14&&!/ /.test(txt(p,settings.target)));
+  const ph=words[Math.floor(Math.random()*words.length)]||allPhrases()[0];
+  const answer=txt(ph,settings.target); const letters=shuffle(answer.split(""));
+  let built="";
+  const box=gameShell("🔤 Letter Ordering",'<p class="muted">Rebuild the word that means:</p><h3 style="font-size:1.4rem">'+esc(txt(ph,settings.native))+' <button class="audio-btn" id="lAudio" style="width:38px;height:38px">🔊</button></h3><div id="lBuilt" style="min-height:56px;border:2px dashed var(--border);border-radius:12px;padding:.5rem;font-size:1.4rem;font-weight:800;letter-spacing:2px;margin:.8rem 0"></div><div id="lChips"></div><div style="display:flex;gap:.6rem;margin-top:1rem"><button class="btn ghost" id="lUndo">⌫ Undo</button><button class="btn" id="lCheck">Check</button></div><p id="lFb" style="margin-top:.7rem;font-weight:700"></p>');
+  const chips=box.querySelector("#lChips"),builtEl=box.querySelector("#lBuilt");
+  chips.innerHTML=letters.map((ch,i)=>'<button class="letter-chip" data-i="'+i+'">'+esc(ch)+'</button>').join("");
+  chips.querySelectorAll(".letter-chip").forEach(c=>c.onclick=function(){c.classList.add("used");built+=c.textContent;builtEl.textContent=built});
+  box.querySelector("#lAudio").onclick=function(){speak(answer,settings.target)};
+  box.querySelector("#lUndo").onclick=function(){built=built.slice(0,-1);builtEl.textContent=built;const used=chips.querySelectorAll(".letter-chip.used");if(used.length)used[used.length-1].classList.remove("used")};
+  box.querySelector("#lCheck").onclick=function(){const fb=box.querySelector("#lFb");if(built.toLowerCase()===answer.toLowerCase()){fb.textContent="✓ Correct! The word is “"+answer+"”.";fb.style.color="var(--success)";markDone(ph.id);recordScore("Letter Ordering",1,1)}else{fb.textContent="✗ Not yet — keep trying, or tap 🔊 to hear it.";fb.style.color="var(--danger)";recordScore("Letter Ordering",0,1)}};
+}
+function pagePronunciation(){
+  const pool=allPhrases(); let idx=Math.floor(Math.random()*pool.length);
+  let recorder=null,chunks=[],stream=null,recognition=null;
+  app.innerHTML='<h1 class="section-title">🎤 Pronunciation practice</h1>'
+  +'<div class="card"><p class="muted">Listen to the phrase, record yourself, replay your recording and compare. Where your browser supports speech recognition (Chrome on Android/desktop), you also get an automatic score.</p>'
+  +supportNote()
+  +'<div style="text-align:center;padding:1rem 0"><div style="font-size:1.8rem;font-weight:800" id="prTarget"></div><div class="muted" id="prNative"></div><div class="muted small" id="prPron"></div></div>'
+  +'<div style="display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center"><button class="btn accent" id="prListen">🔊 Listen</button><button class="btn danger" id="prRecord">⏺ Record</button><button class="btn ghost" id="prStop" disabled>⏹ Stop</button><button class="btn ghost" id="prNext">⏭ Next phrase</button></div>'
+  +'<div style="text-align:center;margin-top:1rem"><audio id="prPlayback" controls style="display:none;max-width:100%"></audio></div>'
+  +'<div id="prResult" style="margin-top:1rem"></div>'
+  +'<div class="card" style="box-shadow:none;margin-top:1rem"><h3>ℹ️ Technical limits, honestly</h3><ul class="small muted" style="padding-inline-start:1.1rem"><li>Audio playback uses your device\'s built-in text-to-speech voices — quality and available voices depend on your phone/browser.</li><li>Recording needs microphone permission and works only on HTTPS or localhost.</li><li>Automatic assessment uses the Web Speech Recognition API, available mainly in Chrome; on other browsers you compare by ear with replay.</li><li>Your recordings stay on your device — nothing is uploaded.</li></ul></div></div>'
+  +adSlot("Pronunciation page");
+  const T=app.querySelector("#prTarget"),N=app.querySelector("#prNative"),Pr=app.querySelector("#prPron"),res=app.querySelector("#prResult"),play=app.querySelector("#prPlayback");
+  function draw(){const ph=pool[idx];T.textContent=txt(ph,settings.target);N.textContent=txt(ph,settings.native);Pr.textContent=pronGuide(ph,settings.target);res.innerHTML="";play.style.display="none"}
+  app.querySelector("#prListen").onclick=function(){speak(T.textContent,settings.target)};
+  app.querySelector("#prNext").onclick=function(){idx=(idx+1)%pool.length;draw()};
+  app.querySelector("#prRecord").onclick=async function(){
+    res.innerHTML="";
+    try{
+      stream=await navigator.mediaDevices.getUserMedia({audio:true});
+      chunks=[];recorder=new MediaRecorder(stream);
+      recorder.ondataavailable=function(e){chunks.push(e.data)};
+      recorder.onstop=function(){const blob=new Blob(chunks,{type:"audio/webm"});play.src=URL.createObjectURL(blob);play.style.display="inline-block";stream.getTracks().forEach(t=>t.stop());startRecognition()};
+      recorder.start();app.querySelector("#prRecord").disabled=true;app.querySelector("#prStop").disabled=false;res.innerHTML='<p class="muted">🔴 Recording… speak now, then tap Stop.</p>';
+    }catch(e){res.innerHTML='<p style="color:var(--danger);font-weight:700">Microphone unavailable: allow microphone permission, use HTTPS, or practise with Listen + repeat.</p>'}
+  };
+  app.querySelector("#prStop").onclick=function(){if(recorder&&recorder.state!=="inactive")recorder.stop();app.querySelector("#prRecord").disabled=false;app.querySelector("#prStop").disabled=true};
+  function startRecognition(){
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SR){res.innerHTML='<p class="muted">✅ Recording saved above — replay it and compare with 🔊 Listen. Automatic scoring is not supported in this browser (try Chrome).</p>';return}
+    try{
+      recognition=new SR();recognition.lang=langBy(settings.target).tts;recognition.interimResults=false;recognition.maxAlternatives=1;
+      res.innerHTML='<p class="muted">Analysing your pronunciation… (if nothing happens, your earlier recording is still playable above.)</p>';
+      recognition.onresult=function(ev){
+        const said=ev.results[0][0].transcript.trim();
+        const target=T.textContent.trim();
+        const norm=function(s){return s.toLowerCase().replace(/[¡!¿?.,;:«»""]/g,"").trim()};
+        const match=norm(said)===norm(target);
+        const conf=Math.round((ev.results[0][0].confidence||0)*100);
+        res.innerHTML='<div class="card" style="box-shadow:none;'+(match?"border-color:var(--success)":"border-color:var(--accent2)")+'"><strong>'+(match?"🎉 Excellent — recognised perfectly!":"🗣️ We heard:")+'</strong><p>“'+esc(said)+'”</p><p class="muted small">Target: “'+esc(target)+'” · Recognition confidence: '+conf+'%'+(match?"":" · Tip: tap Listen, slow down, and try again.")+'</p></div>';
+        if(match){markDone(pool[idx].id);recordScore("Pronunciation",1,1)}
+      };
+      recognition.onerror=function(){res.innerHTML='<p class="muted">Automatic scoring could not run for that take — your recording above is still playable for self-comparison.</p>'};
+      recognition.start();
+    }catch(e){res.innerHTML='<p class="muted">Automatic scoring is not available here — use Listen + replay comparison.</p>'}
+  }
+  draw();
+}
+
+/* ---------- Profile / accounts (local, optional) ---------- */
+function pageProfile(){
+  const total=allPhrases().length,pct=Math.round(doneCount()/total*100);
+  const recent=progress.scores.slice(-8).reverse();
+  const achievements=[];
+  if(doneCount()>=1)achievements.push("🌱 First phrase completed");
+  if(doneCount()>=25)achievements.push("📚 25 phrases completed");
+  if(doneCount()>=60)achievements.push("🔥 60 phrases completed");
+  if(doneCount()>=120)achievements.push("🏆 Full course completed");
+  if(progress.scores.length>=5)achievements.push("🎮 Played 5 games");
+  if(progress.favs.length>=5)achievements.push("⭐ Saved 5 favorites");
+  app.innerHTML='<h1 class="section-title">👤 My Progress</h1>'
+  +(user?'<div class="card"><h3>Welcome, '+esc(user.name)+' 👋</h3><p class="muted small">Account: '+esc(user.email)+' · Stored only on this device in this version. <button class="btn small danger" id="logoutBtn">Sign out</button></p></div>'
+       :'<div class="card"><h3>Create a free account (optional)</h3><p class="muted small">Learning works without an account. An account on this device saves your name with your progress. For cross-device sync, connect the production backend (see Admin → Architecture).</p><div class="grid" style="grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.6rem"><input id="accName" placeholder="Your name"><input id="accEmail" type="email" placeholder="Email address"></div><input id="accPass" type="password" placeholder="Password (stored as a hash on this device only)" style="margin-top:.6rem"><button class="btn" id="accCreate" style="margin-top:.7rem">Create account / Sign in</button><p class="muted small" id="accMsg"></p></div>')
+  +'<div class="card" style="margin-top:1rem"><h3>📈 Learning progress — '+pct+'%</h3><div class="progress-wrap" style="margin:.6rem 0"><div class="progress-bar" style="width:'+pct+'%"></div></div><p class="muted small">'+doneCount()+" / "+total+' phrases completed · Last lesson: '+(progress.lastLesson?('<a href="#/'+progress.lastLesson+'">Continue where you left off</a>'):"none yet")+'</p></div>'
+  +'<h2 class="section-title">⭐ Favorite vocabulary ('+progress.favs.length+')</h2>'+(progress.favs.length?progress.favs.map(id=>{const ph=allPhrases().find(p=>p.id===id);return ph?phraseRow(ph,true):""}).join(""):'<p class="muted">No favorites yet — tap ☆ on any phrase.</p>')
+  +'<h2 class="section-title">🏅 Achievements</h2><div class="card">'+(achievements.length?achievements.map(a=>'<p>'+a+'</p>').join(""):'<p class="muted">Complete your first phrase to earn your first badge.</p>')+'</div>'
+  +'<h2 class="section-title">🎮 Quiz &amp; game history</h2><div class="card">'+(recent.length?'<table><tr><th>Game</th><th>Score</th><th>Date</th></tr>'+recent.map(s=>'<tr><td>'+esc(s.game)+'</td><td>'+s.score+" / "+s.total+'</td><td>'+esc(s.date)+'</td></tr>').join("")+'</table>':'<p class="muted">No games played yet. <a href="#/games">Play your first game</a>.</p>')+'</div>'
+  +'<button class="btn danger" id="resetBtn" style="margin-top:1rem">Reset all my progress</button>';
+  bindPhraseRows(app);
+  const create=app.querySelector("#accCreate");
+  if(create)create.onclick=function(){
+    const name=app.querySelector("#accName").value.trim(),email=app.querySelector("#accEmail").value.trim(),pass=app.querySelector("#accPass").value;
+    const msg=app.querySelector("#accMsg");
+    if(!name||!email.includes("@")||pass.length<6){msg.textContent="Please enter a name, a valid email and a password of 6+ characters.";msg.style.color="var(--danger)";return}
+    let h=0;for(let i=0;i<pass.length;i++)h=(h*31+pass.charCodeAt(i))>>>0;
+    user={name:name,email:email,passHash:h,created:new Date().toISOString().slice(0,10)};DB.set("user",user);toast("Welcome, "+name+"!");render();
+  };
+  const lo=app.querySelector("#logoutBtn"); if(lo)lo.onclick=function(){user=null;DB.set("user",null);render()};
+  app.querySelector("#resetBtn").onclick=function(){if(confirm("Reset all progress, favorites and scores on this device?")){progress={done:{},favs:[],scores:[],visits:1,lastLesson:""};saveProgress();render()}};
+}
+/* ---------- Static pages ---------- */
+function staticPage(title,body){app.innerHTML='<h1 class="section-title">'+title+'</h1><div class="card">'+body+'</div>'+adSlot("Content page")}
+function pageAbout(){staticPage("ℹ️ About LangBleu",'<p><strong>LangBleu.com</strong> is a free language-learning platform built for everyone. Our mission: make practical language skills available to any person, in any country, without paywalls or mandatory sign-ups.</p><h3 style="margin-top:1rem">What we offer</h3><p>120 practical phrases in 15 everyday topics, complete courses in 7 languages, a catalogue of 55+ selectable languages, native-voice audio, 8 interactive games, pronunciation practice with recording, and progress tracking that respects your privacy — your data stays on your device.</p><h3 style="margin-top:1rem">Our promise</h3><p>All lessons on LangBleu are original content written for this platform. We never copy lessons, text or media from other websites. LangBleu is supported by advertising so learning stays free.</p><h3 style="margin-top:1rem">The Bleu family</h3><p>LangBleu is part of a family of free tools that includes CalcBlue (calculators) and PdfBleu (PDF tools).</p>')}
+function pageContact(){app.innerHTML='<h1 class="section-title">✉️ Contact Us</h1><div class="card"><p>Email: <strong>contact@langbleu.com</strong></p><p class="muted small">Or use this form — it opens your email app with your message ready to send.</p><div style="display:grid;gap:.6rem;margin-top:.8rem"><input id="cName" placeholder="Your name"><input id="cSubject" placeholder="Subject"><textarea id="cBody" rows="5" placeholder="Your message…"></textarea><button class="btn" id="cSend">Send message</button><p class="muted small" id="cMsg"></p></div></div>';
+ app.querySelector("#cSend").onclick=function(){const n=app.querySelector("#cName").value.trim(),s=app.querySelector("#cSubject").value.trim(),b=app.querySelector("#cBody").value.trim();if(!n||!s||!b){app.querySelector("#cMsg").textContent="Please complete all fields.";return}location.href="mailto:contact@langbleu.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent("From: "+n+"\n\n"+b)}}
+function pageFAQ(){const faqs=[["Is LangBleu really free?","Yes. All lessons and games are free, with no mandatory registration. The site is supported by non-intrusive advertising."],["Which languages have a complete course?","English, Spanish, French, German, Italian, Portuguese and Arabic have the complete 120-phrase course. The catalogue lists 55+ languages, and new translations are added through the admin CMS — we label growing languages honestly instead of inventing translations."],["How does the audio work?","Audio uses the built-in text-to-speech voices of your device or browser, so available voices and quality depend on your phone or computer."],["Why does pronunciation scoring not work on my phone?","Automatic scoring uses the Web Speech Recognition API, supported mainly in Chrome. On other browsers you can still record, replay and compare by ear."],["Is my data uploaded?","No. In this version, accounts, progress and recordings stay in your browser on your device."],["Can I learn offline?","Once the page has loaded, lessons and games keep working without a connection; audio depends on your device voices."]];staticPage("❓ Frequently Asked Questions",faqs.map(f=>'<h3 style="margin-top:1rem">'+f[0]+'</h3><p class="muted">'+f[1]+'</p>').join(""))}
+function pagePrivacy(){staticPage("🔒 Privacy Policy",'<p class="small muted">Last updated: 1 November 2026</p><h3 style="margin-top:1rem">1. Data we collect</h3><p>LangBleu is designed to work without collecting personal data. Your language choices, progress, favorites, scores and optional local account are stored only in your browser (localStorage) on your device and are not transmitted to us.</p><h3 style="margin-top:1rem">2. Microphone</h3><p>Pronunciation recording happens entirely on your device after you grant permission. Recordings are never uploaded.</p><h3 style="margin-top:1rem">3. Advertising &amp; cookies</h3><p>When activated by the site owner, Google AdSense may place cookies to serve personalised or non-personalised ads, in line with Google\'s advertising policies. You can manage ad personalisation in your Google account settings. No advertising is activated until the owner adds a publisher ID in the admin panel.</p><h3 style="margin-top:1rem">4. Analytics</h3><p>Anonymous, on-device usage counters (visits, completed phrases) are shown only in the admin panel on this device.</p><h3 style="margin-top:1rem">5. Your rights</h3><p>You can erase everything at any time from My Progress → Reset, or by clearing your browser data. Contact: contact@langbleu.com</p>')}
+function pageTerms(){staticPage("📜 Terms of Service",'<p class="small muted">Last updated: 1 November 2026</p><h3 style="margin-top:1rem">1. Service</h3><p>LangBleu provides free language lessons and games for personal, non-commercial learning. Content is provided “as is” for education; translations are prepared with care but may contain errors — tell us via Contact and we will correct them.</p><h3 style="margin-top:1rem">2. Intellectual property</h3><p>All lessons, design and code on LangBleu are original and owned by LangBleu. You may not copy or redistribute the course content commercially.</p><h3 style="margin-top:1rem">3. Acceptable use</h3><p>Do not misuse the service, attempt to break security, or use automated scraping that harms availability for learners.</p><h3 style="margin-top:1rem">4. Liability</h3><p>To the maximum extent allowed by law, LangBleu is not liable for indirect losses arising from use of the free service.</p>')}
+/* ---------- Admin ---------- */
+let adminAuthed=DB.get("admin_authed",false);
+function pageAdmin(){
+  if(!adminAuthed){
+    app.innerHTML='<h1 class="section-title">🔐 Admin login</h1><div class="card" style="max-width:440px"><p class="muted small">Demo gate for this static deployment. Default password: <strong>admin123</strong> — change it below after logging in. For a public production launch, protect /admin with real server authentication (see Architecture).</p><input id="adminPass" type="password" placeholder="Admin password" style="margin-top:.7rem"><button class="btn" id="adminLogin" style="margin-top:.7rem">Log in</button><p class="small" id="adminMsg" style="color:var(--danger)"></p></div>';
+    app.querySelector("#adminLogin").onclick=function(){if(app.querySelector("#adminPass").value===adminCfg.adminPass){adminAuthed=true;DB.set("admin_authed",true);render()}else app.querySelector("#adminMsg").textContent="Wrong password."};
+    return;
+  }
+  const phrases=allPhrases();
+  app.innerHTML='<h1 class="section-title">🛠️ Admin Dashboard <button class="btn small danger" id="adminOut">Log out</button></h1>'
+  +'<div class="grid c4"><div class="card"><h3>'+allLangs().length+'</h3><p class="muted small">Languages</p></div><div class="card"><h3>'+phrases.length+'</h3><p class="muted small">Phrases / lessons</p></div><div class="card"><h3>'+progress.visits+'</h3><p class="muted small">Visits (this device)</p></div><div class="card"><h3>'+doneCount()+'</h3><p class="muted small">Phrases completed (this device)</p></div></div>'
+  +'<h2 class="section-title">➕ Add / edit a phrase (CMS)</h2><div class="card"><div class="grid" style="grid-template-columns:1fr 1fr;gap:.6rem"><select id="npCat">'+CATS.map((c,i)=>'<option value="'+i+'">'+c[0]+" "+c[1]+'</option>').join("")+'</select><input id="npEn" placeholder="English (source) *"></div><div class="grid" style="grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-top:.6rem"><input id="npEs" placeholder="Spanish"><input id="npFr" placeholder="French"><input id="npDe" placeholder="German"></div><div class="grid" style="grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-top:.6rem"><input id="npIt" placeholder="Italian"><input id="npPt" placeholder="Portuguese"><input id="npAr" placeholder="Arabic"></div><button class="btn" id="npAdd" style="margin-top:.7rem">Save phrase</button> <span class="muted small">Saved phrases appear instantly in Lessons and all games.</span><div style="overflow-x:auto;margin-top:1rem"><table><tr><th>#</th><th>Category</th><th>English</th><th>Spanish</th><th>Source</th><th></th></tr>'
+  +phrases.map((p,i)=>'<tr><td>'+(i+1)+'</td><td>'+CATS[p.cat][1]+'</td><td>'+esc(p.texts.en)+'</td><td>'+esc(p.texts.es||"")+'</td><td>'+(String(p.id).indexOf("c")===0?"Custom":"Built-in")+'</td><td>'+(String(p.id).indexOf("c")===0?'<button class="btn small danger" data-del="'+p.id+'">Delete</button>':"")+'</td></tr>').join("")+'</table></div></div>'
+  +'<h2 class="section-title">🌍 Add a language</h2><div class="card"><div class="grid" style="grid-template-columns:1fr 1fr 1fr 1fr;gap:.6rem"><input id="nlCode" placeholder="Code (e.g. ber)"><input id="nlName" placeholder="Name (e.g. Tamazight)"><input id="nlNative" placeholder="Native name"><input id="nlFlag" placeholder="Flag emoji"></div><button class="btn" id="nlAdd" style="margin-top:.7rem">Add language</button><p class="muted small">New languages become selectable immediately; add their translations phrase by phrase above.</p></div>'
+  +'<h2 class="section-title">💰 Monetization (Google AdSense)</h2><div class="card"><label class="small" style="font-weight:700">Publisher ID (ca-pub-…)</label><input id="adsId" value="'+esc(adminCfg.adsenseId)+'" placeholder="ca-pub-XXXXXXXXXXXXXXXX"><div style="display:flex;gap:.6rem;margin-top:.7rem;flex-wrap:wrap"><button class="btn" id="adsSave">Save &amp; activate ad slots</button></div><p class="muted small">Ad slots are placed on Home, Lessons, Lesson pages and between games — never inside a game while playing. Follow AdSense policy: no ads on error/empty screens, no accidental-click layouts.</p></div>'
+  +'<h2 class="section-title">🔑 Security</h2><div class="card"><label class="small" style="font-weight:700">Change admin password</label><input id="newPass" type="password" placeholder="New password (6+ characters)"><button class="btn warn" id="passSave" style="margin-top:.7rem">Change password</button></div>'
+  +'<h2 class="section-title">🏗️ Architecture &amp; scaling (production path)</h2><div class="card small"><p><strong>Current deploy (v1):</strong> one self-contained <code>index.html</code> + <code>sitemap.xml</code> + <code>robots.txt</code> — host free on Cloudflare Pages / GitHub Pages, exactly like CalcBlue. Data layer mirrors this relational schema in localStorage:</p><p style="margin-top:.5rem"><code>languages(code, name, native_name, flag, tts_locale, active)</code> · <code>categories(id, icon, name)</code> · <code>phrases(id, category_id)</code> · <code>translations(phrase_id, lang_code, text)</code> · <code>users(id, name, email, pass_hash)</code> · <code>progress(user_id, phrase_id, done, favorite)</code> · <code>scores(user_id, game, score, total, date)</code> · <code>settings(key, value)</code></p><p style="margin-top:.5rem"><strong>To scale to millions:</strong> move the same schema to Supabase (Postgres + Auth + Storage for audio/images) or Firebase, put the static front-end behind a CDN, generate one SEO URL per lesson (<code>/learn/{native}/{target}/{category}</code>) at build time, and protect this dashboard with the backend\'s role-based auth. No front-end changes are needed beyond swapping the DB layer functions.</p><p style="margin-top:.5rem"><strong>API keys:</strong> none are required in v1 (audio = device TTS, recognition = browser API). If you later add a paid TTS or translation API, store its key as a server-side environment variable — never in this file.</p></div>';
+  app.querySelector("#adminOut").onclick=function(){adminAuthed=false;DB.set("admin_authed",false);render()};
+  app.querySelector("#npAdd").onclick=function(){
+    const en=app.querySelector("#npEn").value.trim(); if(!en){toast("English source text is required.");return}
+    customPhrases.push({id:"c"+Date.now(),cat:+app.querySelector("#npCat").value,texts:{en:en,es:app.querySelector("#npEs").value.trim(),fr:app.querySelector("#npFr").value.trim(),de:app.querySelector("#npDe").value.trim(),it:app.querySelector("#npIt").value.trim(),pt:app.querySelector("#npPt").value.trim(),ar:app.querySelector("#npAr").value.trim()}});
+    DB.set("custom_phrases",customPhrases);toast("Phrase saved ✓");render();
+  };
+  app.querySelectorAll("[data-del]").forEach(b=>b.onclick=function(){customPhrases=customPhrases.filter(p=>p.id!==b.getAttribute("data-del"));DB.set("custom_phrases",customPhrases);render()});
+  app.querySelector("#nlAdd").onclick=function(){
+    const code=app.querySelector("#nlCode").value.trim().toLowerCase(),name=app.querySelector("#nlName").value.trim();
+    if(!code||!name){toast("Code and name are required.");return}
+    customLangs.push({code:code,name:name,native:app.querySelector("#nlNative").value.trim()||name,flag:app.querySelector("#nlFlag").value.trim()||"🌐",tts:code});DB.set("custom_langs",customLangs);toast("Language added ✓");render();
+  };
+  app.querySelector("#adsSave").onclick=function(){adminCfg.adsenseId=app.querySelector("#adsId").value.trim();DB.set("admin",adminCfg);toast("AdSense settings saved");render()};
+  app.querySelector("#passSave").onclick=function(){const v=app.querySelector("#newPass").value;if(v.length<6){toast("Password must be 6+ characters.");return}adminCfg.adminPass=v;DB.set("admin",adminCfg);toast("Admin password changed ✓")};
+}
+/* ---------- Router ---------- */
+function render(){
+  applyTheme();applyDir();syncTopBar();
+  const hash=(location.hash||"#/home").replace(/^#\//,"");
+  const parts=hash.split("/"); const page=parts[0]||"home";
+  document.querySelectorAll("#mainnav a").forEach(a=>a.classList.toggle("active",a.getAttribute("data-nav")===page));
+  window.scrollTo(0,0);
+  if(page==="home"||page==="")pageHome();
+  else if(page==="languages")pageLanguages();
+  else if(page==="lessons")pageLessons();
+  else if(page==="lesson")pageLesson(parts[1]);
+  else if(page==="games")pageGames();
+  else if(page==="flashcards")pageFlashcards();
+  else if(page==="listening")quizEngine("🎧 Listening Game","listening");
+  else if(page==="game"){const g=parts[1];if(g==="matching")pageMatching();else if(g==="memory")pageMemory();else if(g==="ttt")pageTTT();else if(g==="quiz")quizEngine("❓ Multiple-Choice Quiz","quiz");else if(g==="writing")quizEngine("✍️ Word Writing","writing");else if(g==="letters")pageLetters();else pageGames()}
+  else if(page==="pronunciation")pagePronunciation();
+  else if(page==="profile")pageProfile();
+  else if(page==="about")pageAbout();
+  else if(page==="contact")pageContact();
+  else if(page==="faq")pageFAQ();
+  else if(page==="privacy")pagePrivacy();
+  else if(page==="terms")pageTerms();
+  else if(page==="admin")pageAdmin();
+  else pageHome();
+}
+window.addEventListener("hashchange",render);
+document.getElementById("lmExit").onclick=closePicker;
+document.getElementById("lmClose").onclick=closePicker;
+document.getElementById("lmSearch").oninput=function(e){drawPicker(e.target.value)};
+document.getElementById("learnBtn").onclick=function(){openPicker("target")};
+document.getElementById("speakBtn").onclick=function(){openPicker("native")};
+document.getElementById("langModal").addEventListener("click",function(e){if(e.target.id==="langModal")closePicker()});
+if(window.speechSynthesis)try{speechSynthesis.getVoices()}catch(e){}
+render();
+</script>
+</body>
+</html>
