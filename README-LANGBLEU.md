@@ -9,6 +9,7 @@ pronunciation practice, local progress & account (on-device), AdSense slots.
 | File | What it is |
 |---|---|
 | `index.html` | The whole site (design + app code) |
+| `lang-img-1.jpg` … `lang-img-5.jpg` | Landmark photo sheets: 50 original images (10 per sheet), one famous place per language, shown on the home + languages photo grids |
 | `data-lessons.js` | Lesson index (125 lessons, EN + FR titles) |
 | `data-px.js` | Phrase translations, part 1 (25 languages) |
 | `data-px2.js` | Phrase translations, part 2 (25 languages) |

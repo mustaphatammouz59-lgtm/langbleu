@@ -38,12 +38,12 @@ h1.page-h1{font-size:30px;font-weight:800;margin:10px 0 6px}
 .go-btn{background:var(--cyan);border:none;border-radius:6px;color:#fff;font-size:34px;font-weight:800;display:flex;align-items:center;justify-content:center;min-height:64px}
 .go-btn:hover{background:#00ACC1}
 .pair-note{font-size:13px;color:var(--muted);margin:4px 0 10px}
-.lang-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin:16px 0}
-.lang-card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:pointer;text-align:center;transition:transform .12s, box-shadow .12s}
+.lang-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0}@media(min-width:768px){.lang-grid{grid-template-columns:repeat(4,1fr)}}
+.lang-card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:pointer;text-align:left;transition:transform .12s, box-shadow .12s}
 .lang-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.12)}
-.lang-scene{font-size:44px;padding:16px 0 8px;background:linear-gradient(135deg,#E1BEE7,#B2EBF2)}
-.lang-name{font-weight:700;padding:2px 6px 0}
-.lang-native{color:var(--muted);font-size:13px;padding-bottom:10px}
+.lang-photo{height:0;padding-top:100%;background-size:200% 500%;background-repeat:no-repeat;background-color:#E1BEE7}
+.lang-name{font-weight:700;padding:8px 10px 0;font-size:15px}
+.lang-native{color:var(--muted);font-size:13px;padding:0 10px 10px}
 .badge{display:inline-block;background:#E8F5E9;color:#2E7D32;font-size:11px;font-weight:700;border-radius:8px;padding:2px 7px;margin:0 0 8px}
 .seo-sec{background:#fff;border:1px solid var(--line);border-radius:8px;padding:18px;margin:14px 0}
 .seo-sec h2{font-size:22px;margin-bottom:8px}
@@ -150,6 +150,24 @@ footer a{color:#fff}
  .foot-in{grid-template-columns:1fr}
  h1.page-h1{font-size:24px}.lesson-big{font-size:24px}.player-tgt{font-size:24px}
 }
+
+.pick-btn{width:100%;background:#fff;border:1px solid var(--line);border-radius:4px;padding:11px 12px;font-size:16px;text-align:left;cursor:pointer;color:var(--ink)}
+.pick-btn .caret{float:right;color:var(--muted)}
+.pick-btn.big{padding:17px 18px;font-size:18px}
+.modal-ov{position:fixed;inset:0;background:rgba(0,0,0,.54);z-index:2000;overflow-y:auto;padding:18px 10px}
+.modal-card{background:#fff;max-width:994px;margin:0 auto;border-radius:10px;padding:20px}
+.modal-head{display:flex;justify-content:space-between;align-items:center;font-size:22px;color:rgba(0,0,0,.7);margin-bottom:12px}
+.modal-x{background:none;border:none;font-size:22px;color:rgba(0,0,0,.45);cursor:pointer}
+.modal-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:2px 14px;margin-top:10px}
+.modal-item{background:none;border:none;border-bottom:1px solid #eee;text-align:left;padding:11px 6px;font-size:17px;cursor:pointer;color:rgba(0,0,0,.75)}
+.modal-item:hover{background:#F3E5F5}
+.modal-foot{text-align:center;padding:20px 0 6px}
+.modal-close{background:var(--cyan);color:#fff;border:none;font-size:16px;text-transform:uppercase;padding:12px 34px;border-radius:3px;cursor:pointer}
+[dir=rtl] .pick-btn,[dir=rtl] .modal-item{text-align:right}
+[dir=rtl] .pick-btn .caret{float:left}
+.sticky-ad{display:none}
+@media(max-width:1023px){.sticky-ad{display:flex;position:fixed;left:0;right:0;bottom:0;height:50px;background:#F3E5F5;color:#7B1FA2;align-items:center;justify-content:center;font-size:12px;z-index:900;border-top:1px solid var(--line)}body{padding-bottom:50px}}
+.socials{flex-direction:column;align-items:flex-start}.socials a.soc-box{display:block;border:1px solid rgba(255,255,255,.55);color:#fff;padding:10px 14px;margin:6px 0;text-transform:uppercase;font-size:13px;font-weight:700;text-decoration:none;max-width:200px}
 </style>
 </head>
 <body>
@@ -162,12 +180,13 @@ footer a{color:#fff}
 <div class="toast" id="toast"></div>
 <footer>
 <div class="foot-in">
-<div><div class="foot-brand">LangBleu.com</div><p id="footTag" style="margin:8px 0"></p><div class="socials"><span>YouTube</span><span>Facebook</span><span>Instagram</span></div></div>
+<div><div class="foot-brand">LangBleu.com</div><p id="footTag" style="margin:8px 0"></p><div class="socials"><a class="soc-box" href="https://www.youtube.com" target="_blank" rel="noopener">YouTube</a><a class="soc-box" href="https://www.facebook.com" target="_blank" rel="noopener">Facebook</a><a class="soc-box" href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a></div></div>
 <div><div id="footLinks"></div></div>
 <div><div class="donate-box"><strong style="color:#fff" id="donateLbl"></strong><p style="font-size:13px;margin-top:6px">LangBleu is free for everyone.</p></div></div>
 </div>
 <div class="copybar" id="copyBar"></div>
 </footer>
+<div class="sticky-ad">Advertisement — 320×50</div>
 <script src="data-lessons.js"></script>
 <script src="data-px.js"></script>
 <script src="data-px2.js"></script>
@@ -251,20 +270,28 @@ function applyChrome(){
   document.getElementById("footLinks").innerHTML=["about|about","faq_t|faq","privacy_t|privacy","terms_t|terms","contact|contact"].map(x=>{const p=x.split("|");return '<div style="margin:5px 0"><a href="#/'+p[1]+'">'+esc(t(p[0]))+"</a></div>"}).join("");
 }
 function langOptions(selected){return LANGS.map(L=>'<option value="'+L.code+'"'+(L.code===selected?" selected":"")+">"+L.flag+" "+esc(L.name)+" ("+esc(L.native)+")</option>").join("")}
-function pairBarHTML(){return '<div class="pair-bar"><div class="pb"><label>'+esc(t("speak"))+'</label><select id="nativeSel">'+langOptions(settings.native)+'</select></div><button class="swap-btn" id="swapBtn" title="'+esc(t("swap"))+'">⇄</button><div class="pb"><label>'+esc(t("learn"))+'</label><select id="targetSel">'+langOptions(settings.target)+"</select></div></div>"}
-function bindPairBar(root){const n=root.querySelector("#nativeSel"),tg=root.querySelector("#targetSel"),s=root.querySelector("#swapBtn");
-  if(n)n.onchange=()=>{settings.native=n.value;saveSettings();render()};
-  if(tg)tg.onchange=()=>{settings.target=tg.value;saveSettings();render()};
+function langFlag(c){const L=LANGS.find(x=>x.code===c);return L?L.flag:"🏳️"}
+function sortedLangs(){return [...LANGS].sort((a,b)=>a.name.localeCompare(b.name))}
+function langPos(L){const w=LANGS.indexOf(L)%10;return (w%2*100)+"% "+(Math.floor(w/2)*25)+"%"}
+function learnName(L){return t("learn_line").split("{T}").join(langNameIn(L.code))}
+function pickBtn(id,code,big){return '<button class="pick-btn'+(big?" big":"")+'" id="'+id+'" type="button">'+langFlag(code)+" "+esc(langNameIn(code))+'<span class="caret">▾</span></button>'}
+function closePicker(){const m=document.getElementById("langModal");if(m)m.remove()}
+function openPicker(mode){closePicker();const isN=mode==="native";const items=sortedLangs().map(L=>{const label=isN?L.native:langNameIn(L.code);return '<button class="modal-item" data-code="'+L.code+'" data-label="'+esc(label.toLowerCase())+'" type="button">'+L.flag+" "+esc(label)+"</button>"}).join("");const ov=document.createElement("div");ov.className="modal-ov";ov.id="langModal";ov.innerHTML='<div class="modal-card"><div class="modal-head"><span>'+esc(t(isN?"speak":"learn"))+'</span><button class="modal-x" id="modalX" type="button" aria-label="Close">✕</button></div><input class="search-in" id="modalSearch" type="search" placeholder="'+esc(t("search_lang"))+'"><div class="modal-list">'+items+'</div><div class="modal-foot"><button class="modal-close" id="modalClose" type="button">'+esc(t("done"))+"</button></div></div>";document.body.appendChild(ov);const close=()=>closePicker();document.getElementById("modalX").onclick=close;document.getElementById("modalClose").onclick=close;ov.addEventListener("click",e=>{if(e.target===ov)close()});const inp=document.getElementById("modalSearch");inp.oninput=()=>{const q=inp.value.toLowerCase();ov.querySelectorAll(".modal-item").forEach(b=>b.style.display=b.dataset.label.includes(q)?"":"none")};ov.querySelectorAll(".modal-item").forEach(b=>b.onclick=()=>{settings[mode]=b.dataset.code;saveSettings();closePicker();render()})}
+
+function pairBarHTML(){return '<div class="pair-bar"><div class="pb"><label>'+esc(t("speak"))+'</label>'+pickBtn("nativeBtn",settings.native)+'</div><button class="swap-btn" id="swapBtn" title="'+esc(t("swap"))+'">⇄</button><div class="pb"><label>'+esc(t("learn"))+'</label>'+pickBtn("targetBtn",settings.target)+"</div></div>"}
+function bindPairBar(root){const n=root.querySelector("#nativeBtn"),tg=root.querySelector("#targetBtn"),s=root.querySelector("#swapBtn");
+  if(n)n.onclick=()=>openPicker("native");
+  if(tg)tg.onclick=()=>openPicker("target");
   if(s)s.onclick=()=>{const a=settings.native;settings.native=settings.target;settings.target=a;saveSettings();render()}}
 /* ===== Home ===== */
 function pageHome(){
   let h=adSlot("Advertisement — 728×90 / 320×50");
   h+='<h1 class="page-h1">'+esc(t("home_h1"))+"</h1>";
-  h+='<div class="pair-wrap"><div class="pair-box"><label>'+esc(t("speak"))+'</label><select id="nativeSel">'+langOptions(settings.native)+'</select></div><div class="pair-box"><label>'+esc(t("learn"))+'</label><select id="targetSel">'+langOptions(settings.target)+'</select></div><button class="go-btn" id="goBtn" title="'+esc(t("go"))+'">➜</button></div>';
+  h+='<div class="pair-wrap"><div class="pair-box"><label>'+esc(t("speak"))+'</label>'+pickBtn("nativeBtn",settings.native,1)+'</div><div class="pair-box"><label>'+esc(t("learn"))+'</label>'+pickBtn("targetBtn",settings.target,1)+'</div><button class="go-btn" id="goBtn" title="'+esc(t("go"))+'">➜</button></div>';
   h+='<p class="pair-note">'+esc(tt("pair_note"))+"</p>";
   const last=DB.get("lastLesson",null);
   if(last!=null&&LESSONS[last])h+='<p><a href="#/lesson/'+last+'">▶ '+esc(t("continue_link"))+": "+esc(t("lesson_word"))+" "+(last+1)+" — "+esc(lessonTitle(last))+"</a></p>";
-  h+='<div class="lang-grid">'+LANGS.map(L=>'<div class="lang-card" data-lang="'+L.code+'"><div class="lang-scene">'+L.scene+'</div><div class="lang-name">'+L.flag+" "+esc(L.name)+'</div><div class="lang-native">'+esc(L.native)+'</div><span class="badge">'+esc(t("badge_full"))+"</span></div>").join("")+"</div>";
+  h+='<div class="lang-grid">'+sortedLangs().map(L=>'<div class="lang-card" data-lang="'+L.code+'"><div class="lang-photo" style="background-image:url(lang-img-'+(Math.floor(LANGS.indexOf(L)/10)+1)+'.jpg);background-position:'+langPos(L)+'"></div><div class="lang-name">◎ '+esc(learnName(L))+'</div><div class="lang-native">'+esc(L.native)+'</div></div>').join("")+"</div>";
   h+='<div class="seo-sec"><h2>'+esc(t("home_h2"))+'</h2><p>'+esc(t("home_intro"))+"</p></div>";
   h+=adSlot();
   h+='<div class="seo-sec"><h3>'+esc(t("home_h3"))+'</h3><p>'+esc(t("home_p2"))+"</p><p style='margin-top:10px'>"+esc(tt("home_p3"))+"</p></div>";
@@ -275,7 +302,7 @@ function pageHome(){
 /* ===== Languages page ===== */
 function pageLanguages(){
   let h='<h1 class="page-h1">'+esc(t("languages_title"))+'</h1><p class="sub">'+esc(tt("languages_intro"))+'</p><input class="search-in" id="langSearch" type="search" placeholder="'+esc(t("search_lang"))+'">';
-  h+='<div class="lang-grid" id="langGrid">'+LANGS.map(L=>'<div class="lang-card" data-lang="'+L.code+'" data-name="'+esc((L.name+" "+L.native).toLowerCase())+'"><div class="lang-scene">'+L.scene+'</div><div class="lang-name">'+L.flag+" "+esc(L.name)+'</div><div class="lang-native">'+esc(L.native)+'</div><span class="badge">'+esc(t("badge_full"))+"</span></div>").join("")+"</div>";
+  h+='<div class="lang-grid" id="langGrid">'+sortedLangs().map(L=>'<div class="lang-card" data-lang="'+L.code+'" data-name="'+esc((L.name+" "+L.native).toLowerCase())+'"><div class="lang-photo" style="background-image:url(lang-img-'+(Math.floor(LANGS.indexOf(L)/10)+1)+'.jpg);background-position:'+langPos(L)+'"></div><div class="lang-name">◎ '+esc(learnName(L))+'</div><div class="lang-native">'+esc(L.native)+'</div></div>').join("")+"</div>";
   app.innerHTML=h;
   const inp=document.getElementById("langSearch");
   inp.oninput=()=>{const q=inp.value.toLowerCase();app.querySelectorAll(".lang-card").forEach(c=>c.style.display=c.dataset.name.includes(q)?"":"none")};
@@ -541,7 +568,7 @@ function pageContact(){
 }
 /* ===== Router ===== */
 function render(){
-  applyChrome();stopPlayer();
+  closePicker();applyChrome();stopPlayer();
   const hash=location.hash.replace(/^#\/?/,"");const parts=hash.split("/");const page=parts[0]||"";
   window.scrollTo(0,0);
   if(page==="")pageHome();
