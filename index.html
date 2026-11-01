@@ -1476,29 +1476,52 @@ function pickVoice(locale){
   return v||null;
 }
 const GTTS={zh:"zh-CN",he:"iw",fil:"tl"};
-let _gAudio=null;
+let _gAudio=null,_gToken=0,_voicesWaited=false;
+function ensureAudio(){if(!_gAudio){try{_gAudio=new Audio();_gAudio.preload="auto"}catch(e){_gAudio=null}}return _gAudio}
+document.addEventListener("pointerdown",function(){loadVoices();ensureAudio()},false);
 function googleSpeak(text,code){
-  try{
-    const tl=GTTS[code]||code;
-    const url="https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl="+encodeURIComponent(tl)+"&q="+encodeURIComponent(String(text).slice(0,200));
-    if(_gAudio){try{_gAudio.pause()}catch(e){}}
-    if("speechSynthesis" in window){try{speechSynthesis.cancel()}catch(e){}}
-    _gAudio=new Audio(url);
-    const pr=_gAudio.play();
-    if(pr&&pr.catch)pr.catch(function(){toast("Audio is not available on this device.")});
-  }catch(e){toast("Audio is not available on this device.")}
+  const tl=GTTS[code]||code;
+  const hosts=["https://translate.googleapis.com/translate_tts","https://translate.google.com/translate_tts"];
+  const my=++_gToken;
+  const a=ensureAudio();
+  if(!a){toast("Audio could not play on this device.");return}
+  try{speechSynthesis.cancel()}catch(e){}
+  let hi=0;
+  function attempt(){
+    if(my!==_gToken)return;
+    if(hi>=hosts.length){toast("Audio could not play. Check your internet connection, or install a voice for this language in your phone's text-to-speech settings.");return}
+    const url=hosts[hi++]+"?ie=UTF-8&client=tw-ob&tl="+encodeURIComponent(tl)+"&q="+encodeURIComponent(String(text).slice(0,200));
+    a.onerror=function(){attempt()};
+    try{a.pause()}catch(e){}
+    a.src=url;
+    const pr=a.play();
+    if(pr&&pr.catch)pr.catch(function(){attempt()});
+  }
+  attempt();
 }
-function speak(text,code){
-  const locale=(langBy(code)||{}).tts||code;
+function speakNow(text,code,locale){
   const v=("speechSynthesis" in window)?pickVoice(locale):null;
   if(v){
     try{
       const u=new SpeechSynthesisUtterance(text);
       u.lang=v.lang; u.voice=v; u.rate=0.92;
+      u.onerror=function(){googleSpeak(text,code)};
       speechSynthesis.cancel(); speechSynthesis.speak(u); return;
     }catch(e){}
   }
   googleSpeak(text,code);
+}
+function speak(text,code){
+  const locale=(langBy(code)||{}).tts||code;
+  if(("speechSynthesis" in window)&&!_voices.length&&!_voicesWaited){
+    _voicesWaited=true;
+    let done=false;
+    const go=function(){if(done)return;done=true;try{speechSynthesis.onvoiceschanged=loadVoices}catch(e){} speakNow(text,code,locale)};
+    try{speechSynthesis.onvoiceschanged=function(){loadVoices();go()}}catch(e){}
+    setTimeout(go,700);
+    return;
+  }
+  speakNow(text,code,locale);
 }
 function toast(msg){const t=document.getElementById("toast");t.textContent=msg;t.style.display="block";setTimeout(()=>t.style.display="none",2600)}
 function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
