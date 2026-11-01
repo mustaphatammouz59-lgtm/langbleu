@@ -248,20 +248,39 @@ let _voices=[];
 function loadVoices(){try{_voices=speechSynthesis.getVoices()||[]}catch(e){_voices=[]}}
 if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
 function pickVoice(code){const loc=langBy(code).tts;let v=_voices.find(v=>v.lang===loc)||_voices.find(v=>v.lang&&v.lang.replace("_","-").startsWith(loc.split("-")[0]));return v||null}
-let _sprEl=null,_sprPend=null;
+let _sprEl=null,_sprPend=null,_sprNode=null,_AC=null,_bufs={},_bufQ=[],_bufWait={};
 function _sprInit(){_sprEl=new Audio();_sprEl.preload="auto";_sprEl.addEventListener("timeupdate",()=>{if(_sprEl._stop!=null&&_sprEl.currentTime>=_sprEl._stop){_sprEl._stop=null;try{_sprEl.pause()}catch(e){}}})}
+function _acGet(){if(!_AC){try{_AC=new (window.AudioContext||window.webkitAudioContext)()}catch(e){_AC=null}}if(_AC&&_AC.state==="suspended"){_AC.resume()}return _AC}
+function _bufPlay(buf,start,dur){if(_sprNode){try{_sprNode.stop()}catch(e){}}const s=_AC.createBufferSource();s.buffer=buf;s.connect(_AC.destination);_sprNode=s;try{s.start(0,start,dur)}catch(e){try{s.start(0,start)}catch(e2){}}}
+function _bufGet(src,ok,fail){
+  if(_bufs[src]){ok();return}
+  if(_bufWait[src]){_bufWait[src].push([ok,fail]);return}
+  _bufWait[src]=[[ok,fail]];
+  const done=(good)=>{const ws=_bufWait[src]||[];delete _bufWait[src];ws.forEach(w=>good?w[0]():w[1]())};
+  fetch(src).then(r=>{if(!r.ok)throw new Error("nf");return r.arrayBuffer()}).then(ab=>{const p=_AC.decodeAudioData(ab);if(p&&p.then)return p;throw new Error("nd")}).then(buf=>{_bufs[src]=buf;_bufQ.push(src);while(_bufQ.length>2){delete _bufs[_bufQ.shift()]}done(true)}).catch(()=>done(false))}
+function _elemPlay(src,start,dur,text,code){
+  if(!_sprEl)_sprInit();
+  if(_sprEl._src!==src){_sprEl.src=src;_sprEl._src=src}
+  _sprEl._stop=start+dur;_sprEl._call=(_sprEl._call||0)+1;const myCall=_sprEl._call;
+  try{_sprEl.currentTime=start}catch(e){}
+  const pr=_sprEl.play();if(pr&&pr.catch)pr.catch(()=>{if(_sprEl._call===myCall){_sprEl._stop=null;speakLive(text,code)}});
+  const tick=()=>{if(_sprEl._call!==myCall||_sprEl._stop==null)return;if(!_sprEl.paused&&_sprEl.currentTime>=_sprEl._stop){_sprEl._stop=null;try{_sprEl.pause()}catch(e){}return}requestAnimationFrame(tick)};
+  requestAnimationFrame(tick);
+  clearTimeout(_sprEl._t);_sprEl._t=setTimeout(()=>{if(_sprEl._call===myCall&&_sprEl._stop!=null){_sprEl._stop=null;try{_sprEl.pause()}catch(e){}}},(dur+2.5)*1000)}
 function spriteSpeak(text,code){
   const tab=window["AUD_"+code];
   if(tab){const idx=(PX[code]||[]).indexOf(text);if(idx<0||!(tab[idx*2+1]>0))return false;
     const parts=window["AUDP_"+code];let src="audio-"+code+".mp3",start=tab[idx*2],dur=tab[idx*2+1];
     if(parts){for(const p of parts){if(idx>=p[1]){src=p[0];start=tab[idx*2]-p[2]}}}
-    if(!_sprEl)_sprInit();
-    if(_sprEl._src!==src){_sprEl.src=src;_sprEl._src=src}
-    _sprEl._stop=start+dur;_sprEl._call=(_sprEl._call||0)+1;const myCall=_sprEl._call;
-    try{_sprEl.currentTime=start}catch(e){}
-    const pr=_sprEl.play();if(pr&&pr.catch)pr.catch(()=>{if(_sprEl._call===myCall){_sprEl._stop=null;speakLive(text,code)}});
-    clearTimeout(_sprEl._t);_sprEl._t=setTimeout(()=>{if(_sprEl._call===myCall&&_sprEl._stop!=null){_sprEl._stop=null;try{_sprEl.pause()}catch(e){}}},(dur+2.5)*1000);
-    return true}
+    const ac=_acGet();
+    if(ac){
+      if(_bufs[src]){_bufPlay(_bufs[src],start,dur);return true}
+      _sprPend={text,code};
+      _bufGet(src,()=>{if(_sprPend&&_sprPend.text===text&&_sprPend.code===code){_sprPend=null;_bufPlay(_bufs[src],start,dur)}},
+        ()=>{if(_sprPend&&_sprPend.text===text&&_sprPend.code===code){_sprPend=null;_elemPlay(src,start,dur,text,code)}});
+      setTimeout(()=>{if(_sprPend&&_sprPend.text===text&&_sprPend.code===code){_sprPend=null;_elemPlay(src,start,dur,text,code)}},6000);
+      return "wait"}
+    _elemPlay(src,start,dur,text,code);return true}
   if(window["_AUDL_"+code]){_sprPend={text,code};return "wait"}
   window["_AUDL_"+code]=1;
   const sc=document.createElement("script");sc.src="audio-"+code+".js";
