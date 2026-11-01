@@ -181,6 +181,16 @@ h1.page-h1{font-weight:300}
 .navrow{border-top:1px solid #F3E5F5}
 .mainnav{max-width:1024px;margin:0 auto;gap:18px;padding-top:2px;padding-bottom:8px}
 @media(max-width:640px){.top-soc{display:none}.tl-word{display:none}.signin-btn{font-size:11px;padding:8px 9px}.topbar-in{gap:8px}}
+
+.teach-h{font-size:19px;font-weight:600;margin:18px 0 4px;color:var(--ink)}
+.teach-p{color:#444;line-height:1.65;margin:0 0 6px}
+.how-list{color:var(--muted);font-size:14px;line-height:1.75;margin:2px 0 12px}
+.pl-bar{height:6px;background:#EDE7F6;border-radius:3px;overflow:hidden;margin-bottom:14px}
+.pl-bar>div{height:100%;background:var(--purple);width:0;transition:width .3s}
+.vocab-para{color:#444;line-height:1.65;margin:6px 0}
+
+.idx-para{font-size:16.5px;line-height:1.7;color:#333;margin:8px 0 14px}
+.why-h3{font-size:18px;font-weight:600;margin:18px 0 2px;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -325,17 +335,21 @@ function pageLanguages(){
 }
 /* ===== Lessons index ===== */
 function pageLessons(){
-  const U={h1:tt("idx_h1"),intro:tt("idx_intro")};
   let h=pairBarHTML()+adSlot("Advertisement — top");
-  h+='<h1 class="page-h1">'+esc(U.h1)+'</h1><p class="sub">'+esc(U.intro)+'</p><p><a href="#/contact">'+esc(t("error_link"))+"</a></p>";
-  const secs=[[0,35,"idx_courses_free"],[35,70,"idx_courses_speak"],[70,125,"idx_courses_more"]];
-  secs.forEach((s,si)=>{
-    h+='<h2 class="sec-h">'+esc(tt(s[2]))+'</h2><div class="lesson-grid">';
-    for(let i=s[0];i<s[1];i++){const ph=lessonPhrases(i);const done=ph.filter(p=>progress.done[p.id]).length;
-      h+='<div class="lesson-cell" data-lesson="'+i+'">'+(done===ph.length&&ph.length?'<span class="lc-done">✓</span>':'<span class="lc-arrow">→</span>')+'<span class="lc-top">'+esc(tt("learn_line"))+'</span><span class="lc-num">'+esc(t("lesson_word"))+" "+(i+1)+'</span><span class="lc-name">'+esc(lessonTitle(i))+" ("+ph.length+")</span></div>"}
-    h+="</div>";
-    if(si<2)h+='<p style="margin-top:10px"><a href="#/contact">'+esc(t("error_link"))+"</a></p>"+adSlot();
-  });
+  h+='<h1 class="page-h1">'+esc(tt("idx_h1"))+'</h1><p class="sub">'+esc(tt("idx_intro"))+'</p>';
+  h+='<p class="idx-para">'+esc(tt("idx_para1"))+'</p><p><a href="#/contact">'+esc(t("error_link"))+"</a></p>";
+  const grid=(a,b)=>{let g='<div class="lesson-grid">';
+    for(let i=a;i<b;i++){const ph=lessonPhrases(i);const done=ph.filter(p=>progress.done[p.id]).length;
+      g+='<div class="lesson-cell" data-lesson="'+i+'">'+(done===ph.length&&ph.length?'<span class="lc-done">✓</span>':'<span class="lc-arrow">→</span>')+'<span class="lc-top">'+esc(tt("learn_line"))+'</span><span class="lc-num">'+esc(t("lesson_word"))+" "+(i+1)+'</span><span class="lc-name">'+esc(lessonTitle(i))+" ("+ph.length+")</span></div>"}
+    return g+"</div>"};
+  const errLine='<p style="margin-top:10px"><a href="#/contact">'+esc(t("error_link"))+"</a></p>";
+  h+='<h2 class="sec-h">'+esc(tt("idx_courses_free"))+"</h2>"+grid(0,35)+errLine+adSlot();
+  h+='<h2 class="sec-h">'+esc(tt("idx_courses_speak"))+'</h2><p class="idx-para">'+esc(tt("idx_speak_p1"))+'</p><p class="idx-para">'+esc(tt("idx_speak_p2"))+"</p>";
+  h+='<h2 class="sec-h">'+esc(tt("idx_courses_speak"))+"</h2>"+grid(35,70)+errLine+adSlot();
+  h+='<h2 class="sec-h">'+esc(tt("idx_courses_more"))+"</h2>"+grid(70,125)+errLine;
+  h+='<h2 class="sec-h">'+esc(tt("idx_why_h"))+"</h2>";
+  [1,2,3,4].forEach(k=>{h+='<h3 class="why-h3">'+esc(tt("idx_why"+k+"_h"))+'</h3><p class="idx-para">'+esc(tt("idx_why"+k+"_p"))+"</p>"});
+  h+='<h2 class="sec-h">'+esc(tt("idx_way_h"))+'</h2><p class="idx-para">'+esc(tt("idx_way_p"))+"</p>"+adSlot();
   app.innerHTML=h;bindPairBar(app);
   app.querySelectorAll(".lesson-cell").forEach(c=>c.onclick=()=>{location.hash="#/lesson/"+c.dataset.lesson});
 }
@@ -349,18 +363,29 @@ function pageLesson(n){
   let h='<a class="crumb" href="#/lessons">'+esc(tt("learn_line"))+" :: "+esc(t("lesson_word"))+" "+(n+1)+" ▾</a>";
   h+='<span class="lesson-big">'+esc(lessonTitle(n))+"</span>";
   h+=pairBarHTML();
-  h+='<div class="act-line"><span style="font-size:19px">🗣️</span><select class="act-sel" id="actSel"><option value="">'+esc(tt("vocab"))+'</option><option value="#/game/flashcards">'+esc(t("act_flashcards"))+'</option><option value="#/game/matching">'+esc(t("act_matching"))+'</option><option value="#/game/memory">'+esc(t("act_memory"))+'</option><option value="#/game/ttt">'+esc(t("act_ttt"))+'</option><option value="#/game/listening">'+esc(t("act_listening"))+'</option></select>'
-    +'<a class="act-ico" href="#/game/flashcards" title="'+esc(t("act_flashcards"))+'">🃏</a><a class="act-ico" href="#/game/matching" title="'+esc(t("act_matching"))+'">🧩</a><a class="act-ico" href="#/game/memory" title="'+esc(t("act_memory"))+'">🧠</a><a class="act-ico" href="#/game/ttt" title="'+esc(t("act_ttt"))+'">⭕</a><a class="act-ico" href="#/game/listening" title="'+esc(t("act_listening"))+'">🎧</a><a class="act-ico" href="#/pronunciation" title="'+esc(t("nav_pron"))+'">🎙️</a></div>';
-  h+='<h2 class="sec-h">'+esc(tt("how_say"))+"</h2>";
-  h+='<div class="player-card"><div class="player-nat" id="plNat"></div><div class="player-tgt" id="plTgt"></div><div><button class="p-btn" id="plSpeak" title="'+esc(t("listen"))+'">▶</button><button class="p-btn alt" id="playAllBtn">▶ '+esc(t("play_all"))+'</button></div><div class="player-ctrl"><button class="chip-btn" id="plPrev">'+esc(t("prev_lesson")).replace(" lesson","")+'</button><button class="chip-btn" id="plDone"></button><button class="chip-btn" id="plFav"></button><button class="chip-btn" id="plNext">'+esc(t("next"))+'</button></div><div style="margin-top:8px;color:var(--muted);font-size:13px"><span id="plPos"></span></div></div>';
+  h+='<div class="act-line"><span style="font-size:19px">🗣️</span><select class="act-sel" id="actSel"><option value="">'+esc(tt("vocab"))+'</option><option value="#/game/flashcards">'+esc(t("act_flashcards"))+'</option><option value="#/game/matching">'+esc(t("act_matching"))+'</option><option value="#/game/memory">'+esc(t("act_memory"))+'</option><option value="#/game/ttt">'+esc(t("act_ttt"))+'</option><option value="#/game/listening">'+esc(t("act_listening"))+'</option><option value="#/game/quiz">'+esc(t("g6t"))+'</option><option value="#/game/writing">'+esc(t("g7t"))+'</option><option value="#/game/letters">'+esc(t("g8t"))+'</option></select>'
+    +'<a class="act-ico" href="#/game/flashcards" title="'+esc(t("act_flashcards"))+'">🃏</a><a class="act-ico" href="#/game/matching" title="'+esc(t("act_matching"))+'">🧩</a><a class="act-ico" href="#/game/memory" title="'+esc(t("act_memory"))+'">🧠</a><a class="act-ico" href="#/game/ttt" title="'+esc(t("act_ttt"))+'">⭕</a><a class="act-ico" href="#/game/listening" title="'+esc(t("act_listening"))+'">🎧</a><a class="act-ico" href="#/game/quiz" title="'+esc(t("g6t"))+'">❓</a><a class="act-ico" href="#/game/writing" title="'+esc(t("g7t"))+'">✍️</a><a class="act-ico" href="#/game/letters" title="'+esc(t("g8t"))+'">🔤</a><a class="act-ico" href="#/pronunciation" title="'+esc(t("nav_pron"))+'">🎙️</a></div>';
+  h+='<h3 class="teach-h">'+esc(tt("teach_h"))+'</h3><p class="teach-p">'+esc(tt("teach_para"))+"</p>";
+  h+=adSlot();
+  h+='<h2 class="sec-h">'+esc(tt("how_say"))+'</h2>';
+  h+='<p class="how-list">'+list.map(p=>esc(p.nat)).join("; ")+"</p>";
+  h+='<div class="player-card"><div class="pl-bar"><div id="plBarFill"></div></div><div class="player-nat" id="plNat"></div><div class="player-tgt" id="plTgt"></div><div><button class="p-btn" id="plSpeak" title="'+esc(t("listen"))+'">▶</button><button class="p-btn alt" id="playAllBtn">▶ '+esc(t("play_all"))+'</button><button class="p-btn alt" id="plMic" title="'+esc(t("pron_record"))+'">🎙️</button></div><div class="player-ctrl"><button class="chip-btn" id="plPrev">'+esc(t("prev_lesson")).replace(" lesson","")+'</button><button class="chip-btn" id="plDone"></button><button class="chip-btn" id="plFav"></button><button class="chip-btn" id="plNext">'+esc(t("next"))+'</button></div><div style="margin-top:8px;color:var(--muted);font-size:13px"><span id="plPos"></span></div><div class="feedback" id="plFb"></div></div>';
+  const fillP=k=>t(k).split("{T}").join(langNameIn(settings.target)).split("{C}").join(String(list.length)).split("{TOPIC}").join(lessonTitle(n)).split("{E1}").join(list[0]?list[0].tgt:"").split("{E2}").join(list[1]?list[1].tgt:"");
+  h+='<h3 class="sec-h">'+esc(lessonTitle(n))+" :: "+esc(tt("vocab"))+'</h3>';
+  h+='<p class="vocab-para">'+esc(fillP("lesson_p1"))+'</p><p class="vocab-para">'+esc(fillP("lesson_p2"))+"</p>";
   h+='<div class="vocab-grid">'+list.map(p=>'<div class="vocab-item"><div class="vn"><div class="vnat">'+esc(p.nat)+'</div><div class="vt">'+esc(p.tgt)+'</div></div><button class="mini-btn'+(progress.done[p.id]?" done":"")+'" data-done="'+p.id+'" title="'+esc(t("mark_done"))+'">✓</button><button class="mini-btn'+(progress.favs.includes(p.id)?" on":"")+'" data-fav="'+p.id+'" title="☆">☆</button><button class="vocab-play" data-speak="'+p.id+'">▶</button></div>').join("")+"</div>";
+  h+='<p style="margin-top:12px"><a href="#/contact">'+esc(t("error_link"))+"</a></p>";
   h+='<div class="lesson-nav">'+(n>0?'<a class="nav-link" href="#/lesson/'+(n-1)+'">'+esc(t("prev_lesson"))+" — "+esc(lessonTitle(n-1))+"</a>":"<span></span>")+(n<LESSONS.length-1?'<a class="nav-link" href="#/lesson/'+(n+1)+'">'+esc(t("next_lesson"))+" "+esc(lessonTitle(n+1))+"</a>":"")+"</div>";
-  h+='<p><a href="#/lessons">'+esc(tt("more_courses"))+"</a></p>"+adSlot("Advertisement — bottom");
+  const more=[];for(let i=n+1;i<Math.min(LESSONS.length,n+21);i++)more.push(i);for(let i=n-1;i>=0&&more.length<20;i--)more.unshift(i);
+  h+='<h2 class="sec-h" style="margin-top:22px"><a href="#/lessons">'+esc(tt("more_courses"))+'</a></h2><div class="lesson-grid">'+more.map(i=>{const ph=lessonPhrases(i);const dn=ph.filter(p=>progress.done[p.id]).length;return '<div class="lesson-cell" data-lesson="'+i+'">'+(dn===ph.length&&ph.length?'<span class="lc-done">✓</span>':'<span class="lc-arrow">→</span>')+'<span class="lc-top">'+esc(tt("learn_line"))+'</span><span class="lc-num">'+esc(t("lesson_word"))+" "+(i+1)+'</span><span class="lc-name">'+esc(lessonTitle(i))+" ("+ph.length+")</span></div>"}).join("")+"</div>";
+  h+=adSlot("Advertisement — bottom");
   app.innerHTML=h;bindPairBar(app);
   const sel=document.getElementById("actSel");sel.onchange=()=>{if(sel.value)location.hash=sel.value};
   function paint(){const p=player.list[player.idx];if(!p)return;
     document.getElementById("plNat").textContent=p.nat;document.getElementById("plTgt").textContent=p.tgt;
     document.getElementById("plPos").textContent=(player.idx+1)+" / "+player.list.length;
+    document.getElementById("plBarFill").style.width=((player.idx+1)/player.list.length*100)+"%";
+    document.getElementById("plFb").innerHTML="";
     document.getElementById("plDone").textContent=(progress.done[p.id]?"✓ ":"")+t("mark_done");document.getElementById("plDone").className="chip-btn"+(progress.done[p.id]?" on":"");
     document.getElementById("plFav").textContent=(progress.favs.includes(p.id)?"★ ":"☆ ")+t("favorites_title").replace("⭐ ","");document.getElementById("plFav").className="chip-btn"+(progress.favs.includes(p.id)?" on":"")}
   paint();
@@ -374,10 +399,20 @@ function pageLesson(n){
     const step=()=>{ if(!player.playing)return; const p=player.list[player.idx]; paint(); speak(p.tgt,settings.target);
       player.timer=setTimeout(()=>{ if(player.idx<player.list.length-1){player.idx++;step()} else stopPlayer() },2600)};
     step()};
+  document.getElementById("plMic").onclick=()=>{ const p=player.list[player.idx]; const fb=document.getElementById("plFb");
+    const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+    if(!SR){fb.innerHTML='<span class="bad">'+esc(t("pron_mic_err"))+"</span>";return}
+    try{ const rec=new SR(); rec.lang=langBy(settings.target).tts; rec.interimResults=false;
+      rec.onresult=e=>{ const heard=e.results[0][0].transcript; const norm=s=>s.toLowerCase().replace(/[^\p{L}\p{N} ]/gu,"").replace(/\s+/g," ").trim();
+        const a=norm(heard),b=norm(p.tgt); const sc=a===b?100:Math.max(10,100-Math.round(Math.abs(a.length-b.length)*6)-(a.split(" ").filter(w=>!b.split(" ").includes(w)).length*12));
+        fb.innerHTML='<div>'+esc(t("pron_heard"))+" <strong>"+esc(heard)+'</strong></div><div class="score-big">'+esc(t("pron_score"))+" "+Math.min(100,sc)+"%</div>"+(sc<80?'<div class="sub">'+esc(t("pron_tip"))+"</div>":"")};
+      rec.onerror=()=>{fb.innerHTML='<span class="bad">'+esc(t("pron_mic_err"))+"</span>"};
+      rec.start(); fb.textContent="🎙️ …" }catch(e){ fb.innerHTML='<span class="bad">'+esc(t("pron_mic_err"))+"</span>" } };
   function syncVocab(){app.querySelectorAll("[data-done]").forEach(b=>b.className="mini-btn"+(progress.done[b.dataset.done]?" done":""));app.querySelectorAll("[data-fav]").forEach(b=>b.className="mini-btn"+(progress.favs.includes(+b.dataset.fav)?" on":""))}
   app.querySelectorAll("[data-speak]").forEach(b=>b.onclick=()=>{const p=phraseAt(+b.dataset.speak);speak(p.tgt,settings.target)});
   app.querySelectorAll("[data-done]").forEach(b=>b.onclick=()=>{const id=+b.dataset.done;progress.done[id]=!progress.done[id];if(!progress.done[id])delete progress.done[id];saveProgress();syncVocab();paint()});
   app.querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>{const id=+b.dataset.fav;const i=progress.favs.indexOf(id);if(i>=0)progress.favs.splice(i,1);else progress.favs.push(id);saveProgress();syncVocab();paint()});
+  app.querySelectorAll(".lesson-cell").forEach(c=>c.onclick=()=>{location.hash="#/lesson/"+c.dataset.lesson});
 }
 /* ===== Games ===== */
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
