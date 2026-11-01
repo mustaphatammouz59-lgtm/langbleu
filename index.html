@@ -249,15 +249,18 @@ function loadVoices(){try{_voices=speechSynthesis.getVoices()||[]}catch(e){_voic
 if("speechSynthesis" in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
 function pickVoice(code){const loc=langBy(code).tts;let v=_voices.find(v=>v.lang===loc)||_voices.find(v=>v.lang&&v.lang.replace("_","-").startsWith(loc.split("-")[0]));return v||null}
 let _sprEl=null,_sprPend=null;
+function _sprInit(){_sprEl=new Audio();_sprEl.preload="auto";_sprEl.addEventListener("timeupdate",()=>{if(_sprEl._stop!=null&&_sprEl.currentTime>=_sprEl._stop){_sprEl._stop=null;try{_sprEl.pause()}catch(e){}}})}
 function spriteSpeak(text,code){
   const tab=window["AUD_"+code];
   if(tab){const idx=(PX[code]||[]).indexOf(text);if(idx<0||!(tab[idx*2+1]>0))return false;
     const parts=window["AUDP_"+code];let src="audio-"+code+".mp3",start=tab[idx*2],dur=tab[idx*2+1];
     if(parts){for(const p of parts){if(idx>=p[1]){src=p[0];start=tab[idx*2]-p[2]}}}
-    if(!_sprEl){_sprEl=new Audio();_sprEl.preload="none"}
-    _sprEl.src=src;_sprEl.currentTime=start;
-    const pr=_sprEl.play();if(pr&&pr.catch)pr.catch(()=>speakLive(text,code));
-    clearTimeout(_sprEl._t);_sprEl._t=setTimeout(()=>{try{_sprEl.pause()}catch(e){}},dur*1000);
+    if(!_sprEl)_sprInit();
+    if(_sprEl._src!==src){_sprEl.src=src;_sprEl._src=src}
+    _sprEl._stop=start+dur;_sprEl._call=(_sprEl._call||0)+1;const myCall=_sprEl._call;
+    try{_sprEl.currentTime=start}catch(e){}
+    const pr=_sprEl.play();if(pr&&pr.catch)pr.catch(()=>{if(_sprEl._call===myCall){_sprEl._stop=null;speakLive(text,code)}});
+    clearTimeout(_sprEl._t);_sprEl._t=setTimeout(()=>{if(_sprEl._call===myCall&&_sprEl._stop!=null){_sprEl._stop=null;try{_sprEl.pause()}catch(e){}}},(dur+2.5)*1000);
     return true}
   if(window["_AUDL_"+code]){_sprPend={text,code};return "wait"}
   window["_AUDL_"+code]=1;
@@ -278,7 +281,7 @@ function googleSpeak(text,code,fail){
   const pr=a.play();let failed=false;const bad=()=>{if(!failed){failed=true;fail&&fail()}};
   a.addEventListener("error",bad);if(pr&&pr.catch)pr.catch(bad)}
 function speak(text,code){const r=spriteSpeak(text,code);if(r===true||r==="wait")return;speakLive(text,code)}
-document.addEventListener("pointerdown",()=>{if(!_sprEl){_sprEl=new Audio();_sprEl.preload="none"}},{once:true});
+document.addEventListener("pointerdown",()=>{if(!_sprEl)_sprInit()},{once:true});
 /* ===== Chrome ===== */
 function applyDir(){document.documentElement.dir=RTL.includes(settings.native)?"rtl":"ltr";document.documentElement.lang=settings.native}
 function applyChrome(){
