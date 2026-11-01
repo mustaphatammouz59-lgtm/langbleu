@@ -4,12 +4,10 @@
   <url><loc>https://langbleu.com/#/languages</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://langbleu.com/#/lessons</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://langbleu.com/#/games</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://langbleu.com/#/flashcards</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://langbleu.com/#/listening</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://langbleu.com/#/pronunciation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://langbleu.com/#/about</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://langbleu.com/#/contact</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://langbleu.com/#/pronunciation</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://langbleu.com/#/about</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://langbleu.com/#/faq</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://langbleu.com/#/privacy</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://langbleu.com/#/terms</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://langbleu.com/#/privacy</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://langbleu.com/#/terms</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://langbleu.com/#/contact</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
 </urlset>
