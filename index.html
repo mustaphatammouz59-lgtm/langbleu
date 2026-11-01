@@ -454,7 +454,7 @@ const GTTS={zh:"zh-CN",he:"iw",fil:"tl"};
 let _gAudio=null,_gToken=0,_voicesWaited=false;
 function ensureAudio(){if(!_gAudio){try{_gAudio=new Audio();_gAudio.preload="auto"}catch(e){_gAudio=null}}return _gAudio}
 document.addEventListener("pointerdown",function(){loadVoices();ensureAudio()},false);
-const _spr={}; let _sprA=null,_sprT=null,_sprCode=null;
+const _spr={}; let _sprA=null,_sprT=null,_sprCode=null,_sprPend=null;
 function spriteStop(){if(_sprT){clearTimeout(_sprT);_sprT=null} if(_sprA){try{_sprA.pause()}catch(e){}}}
 function spriteSpeak(text,code){
   const tab=window["AUD_"+code];
@@ -482,14 +482,20 @@ function spriteSpeak(text,code){
     _sprT=setTimeout(function(){try{_sprA.pause()}catch(e){}},dur*1000+150);
     return true;
   }
+  if(_spr[code]===-1)return false;
   if(!_spr[code]){
     _spr[code]=1;
+    _sprPend={text:text,code:code};
     const sc=document.createElement("script");
     sc.src="audio-"+code+".js";
-    sc.onerror=function(){_spr[code]=-1};
+    sc.onload=function(){const p=_sprPend;_sprPend=null;if(p&&p.code===code)spriteSpeak(p.text,p.code)};
+    sc.onerror=function(){_spr[code]=-1;const p=_sprPend;_sprPend=null;if(p&&p.code===code)speakLive(p.text,p.code)};
     document.head.appendChild(sc);
+    setTimeout(function(){if(_sprPend&&_sprPend.code===code&&_spr[code]===1){_spr[code]=-1;const p=_sprPend;_sprPend=null;speakLive(p.text,p.code)}},4000);
+  }else{
+    _sprPend={text:text,code:code};
   }
-  return false;
+  return "wait";
 }
 function googleSpeak(text,code){
   spriteStop();
@@ -542,7 +548,11 @@ function speakNow(text,code,locale){
   googleSpeak(text,code);
 }
 function speak(text,code){
-  if(spriteSpeak(text,code))return;
+  const r=spriteSpeak(text,code);
+  if(r===true||r==="wait")return;
+  speakLive(text,code);
+}
+function speakLive(text,code){
   const locale=(langBy(code)||{}).tts||code;
   if(("speechSynthesis" in window)&&!_voices.length&&!_voicesWaited){
     _voicesWaited=true;
